@@ -14,15 +14,6 @@ export const authApi = createApi({
         };
       },
     }),
-    addEmployee: builder.mutation({
-      query: (data) => {
-        return {
-          url: `/auth/company/employee`,
-          method: "post",
-          body: data,
-        };
-      },
-    }),
     loginCompany: builder.mutation({
       query: (data) => {
         return {
@@ -35,4 +26,4 @@ export const authApi = createApi({
   }),
 });
 
-export const { useRegisterCompanyMutation, useAddCompanyMutation, useLoginCompanyMutation } = authApi;
+export const { useRegisterCompanyMutation, useLoginCompanyMutation } = authApi;

@@ -1,6 +1,6 @@
 import { combineReducers } from "redux";
 import persistReducer from "redux-persist/es/persistReducer";
-import { authApi } from "./services";
+import { authApi, employeeApi } from "./services";
 
 import tabsReducer, { persistConfig } from "./slices/tabs";
 import modalReducer from "./modal/modalRedux";
@@ -8,6 +8,7 @@ import modalReducer from "./modal/modalRedux";
 export const reducers = combineReducers({
   tabsReducer: persistReducer(persistConfig, tabsReducer),
   [authApi.reducerPath]: authApi.reducer,
+  [employeeApi.reducerPath]: employeeApi.reducer,
   modalReducer,
 });
 

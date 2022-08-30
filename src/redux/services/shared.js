@@ -14,7 +14,7 @@ export const baseQuery = fetchBaseQuery({
   prepareHeaders: (headers, { getState }) => {
     const authorization = JSON.parse(localStorage.getItem("auth")).tokens;
     if (authorization?.access) {
-      headers.set("authorization", `Bearer ${authorization?.access_token}`);
+      headers.set("authorization", `Bearer ${authorization?.access}`);
     }
     return headers;
   },
@@ -29,13 +29,13 @@ export const baseQueryWithReauth = async (args, api, extraOptions) => {
     if (!mutex.isLocked()) {
       const release = await mutex.acquire();
       try {
-        const response = await baseQuery("/refreshToken", api, extraOptions);
-        if (response.data) {
-          //   api.dispatch(authRedux.setAllUserDetails(response.data));
-          result = await baseQuery(args, api, extraOptions);
-        } else {
-          //   api.dispatch(authRedux.logout());
-        }
+        // const response = await baseQuery("/refreshToken", api, extraOptions);
+        // if (response.data) {
+        //   //   api.dispatch(authRedux.setAllUserDetails(response.data));
+        //   result = await baseQuery(args, api, extraOptions);
+        // } else {
+        //   //   api.dispatch(authRedux.logout());
+        // }
       } finally {
         release();
       }
