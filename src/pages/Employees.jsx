@@ -141,7 +141,7 @@ const Employees = () => {
                               as={"select"}
                               name={"department"}
                               placeholder={"Select department"}
-                              className={"w-full  placeholder:text-[0.78125rem] -mt-2 focus:outline-none"}
+                              className={"w-full  placeholder:text-[0.78125rem] border-0 focus:outline-none"}
                             >
                               <option value="">Select a department </option>
                               <option value="Engineering">Engineering</option>

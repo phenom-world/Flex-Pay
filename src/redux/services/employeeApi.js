@@ -8,12 +8,13 @@ export const employeeApi = createApi({
   endpoints: (builder) => ({
     getEmployees: builder.query({
       query: ({ page, limit, search_query }) => createRequestWithParams(`company/employee`, { page, limit, search_query }),
-      providesTags: (result, _error, _arg) => (result?.data ? [...result?.data.map(({ id }) => ({ type: "Groups", id })), "Groups"] : ["Groups"]),
+      providesTags: (result, _error, _arg) =>
+        result?.data ? [...result?.data.map(({ id }) => ({ type: "employees", id })), "employees"] : ["employees"],
     }),
 
     getAnEmployee: builder.query({
       query: (id) => createRequest(`company/employee/${id}`),
-      providesTags: (_result, _error, id) => [{ type: "Groups", id }],
+      providesTags: (_result, _error, id) => [{ type: "employees", id }],
     }),
 
     addEmployee: builder.mutation({
@@ -24,6 +25,7 @@ export const employeeApi = createApi({
           body: data,
         };
       },
+      invalidatesTags: ["employees"],
     }),
   }),
 });
