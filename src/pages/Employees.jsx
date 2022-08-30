@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
 import Overview from "../components/Overview";
 import { TbSearch } from "react-icons/tb";
@@ -10,20 +10,32 @@ import { useDispatch, useSelector } from "react-redux";
 import { toggleEmployeesTab } from "../redux/slices/tabs";
 import Popup from "reactjs-popup";
 import { ErrorMessage, Field, Formik } from "formik";
-import { useAddEmployeeMutation } from "../redux/services";
+import { useAddEmployeeMutation, useGetEmployeesQuery } from "../redux/services";
 import { toast } from "react-toastify";
 import LoadingModal from "../components/LoadingModal";
 import { closeModal, openModal } from "../redux/modal/modalRedux";
 import { EmployeeSchema, initialEmployeeValues } from "../schemas/employee";
+import EmptyFetch from "../components/Empty/EmptyFetch";
 
+export const initialEmployeeQuery = {
+  page: 1,
+  limit: 12,
+  department: "",
+  search_query: "",
+};
 const Employees = () => {
   const { employeesTab } = useSelector((state) => state.tabsReducer);
-  const [createEmployee, { isLoading, isSuccess, isError, error }] = useAddEmployeeMutation();
-
   const dispatch = useDispatch();
+  const [createEmployee, { isLoading, isSuccess, isError, error }] = useAddEmployeeMutation();
+  const [query, setQuery] = useState(initialEmployeeQuery);
+  const { data } = useGetEmployeesQuery(query);
 
   const toggleTab = (tab) => {
     dispatch(toggleEmployeesTab(tab));
+  };
+
+  const handleChange = (e) => {
+    setQuery({ ...query, search_query: e.target.value });
   };
 
   const handleOnSubmit = (values, close) => {
@@ -51,7 +63,12 @@ const Employees = () => {
       <div className="w-[60%] mx-5 mt-5">
         <Navbar navbar="Employees" />
         <div className="relative mb-10">
-          <input type="text" placeholder="Search for employees" className="border border-[#8E8E8E] w-full h-12 rounded-lg p-4" />
+          <input
+            onChange={handleChange}
+            type="text"
+            placeholder="Search for employees"
+            className="border border-[#8E8E8E] w-full h-12 rounded-lg p-4"
+          />
           <TbSearch className="absolute top-3 right-4 text-xl" />
         </div>
         <div className="flex justify-end mb-5">
@@ -144,7 +161,9 @@ const Employees = () => {
                               className={"w-full  placeholder:text-[0.78125rem] border-0 focus:outline-none"}
                             >
                               <option value="">Select a department </option>
-                              <option value="Engineering">Engineering</option>
+                              <option value="Engineering">Product</option>
+                              <option value="Engineering">Marketing</option>
+                              <option value="Engineering">Design</option>
                               {/* {roles &&
                                 roles.map((item) => (
                                   <option key={item.code} value={item.code}>
@@ -191,28 +210,33 @@ const Employees = () => {
             )}
           </Popup>
         </div>
-        <div className="flex text-base font-bold text-[#8E8E8E] mb-10">
-          <p className={`mr-10 cursor-pointer ${employeesTab === "all" && "text-orange underline"}`} onClick={() => toggleTab("all")}>
-            All
-          </p>
-          <p className={`mr-10 cursor-pointer ${employeesTab === "pending" && "text-orange underline"}`} onClick={() => toggleTab("pending")}>
-            Pending
-          </p>
-
-          <p className={`mr-10 cursor-pointer ${employeesTab === "engineering" && "text-orange underline"}`} onClick={() => toggleTab("engineering")}>
-            Engineering
-          </p>
-          <p className={`mr-10 cursor-pointer ${employeesTab === "product" && "text-orange underline"}`} onClick={() => toggleTab("product")}>
-            Product
-          </p>
-          <p className={`mr-10 cursor-pointer ${employeesTab === "marketing" && "text-orange underline"}`} onClick={() => toggleTab("marketing")}>
-            Marketing
-          </p>
-          <p className={`mr-10 cursor-pointer ${employeesTab === "design" && "text-orange underline"}`} onClick={() => toggleTab("design")}>
-            Design
-          </p>
-        </div>
-        <EmployeesList />
+        {data?.data?.length === 0 && query.search_query === "" ? (
+          <EmptyFetch content={"No Employees added yet"} />
+        ) : (
+          <>
+            <div className="flex text-base font-bold text-[#8E8E8E] mb-10">
+              <p className={`mr-10 cursor-pointer ${employeesTab === "all" && "text-orange underline"}`} onClick={() => toggleTab("all")}>
+                All
+              </p>
+              <p
+                className={`mr-10 cursor-pointer ${employeesTab === "engineering" && "text-orange underline"}`}
+                onClick={() => toggleTab("engineering")}
+              >
+                Engineering
+              </p>
+              <p className={`mr-10 cursor-pointer ${employeesTab === "product" && "text-orange underline"}`} onClick={() => toggleTab("product")}>
+                Product
+              </p>
+              <p className={`mr-10 cursor-pointer ${employeesTab === "marketing" && "text-orange underline"}`} onClick={() => toggleTab("marketing")}>
+                Marketing
+              </p>
+              <p className={`mr-10 cursor-pointer ${employeesTab === "design" && "text-orange underline"}`} onClick={() => toggleTab("design")}>
+                Design
+              </p>
+            </div>
+            <EmployeesList data={data} query={query} setQuery={setQuery} />
+          </>
+        )}
       </div>
       <div className="w-[20%] mr-10 ml-5">
         <Overview />

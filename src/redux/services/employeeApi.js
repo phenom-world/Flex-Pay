@@ -30,4 +30,4 @@ export const employeeApi = createApi({
   }),
 });
 
-export const { useAddEmployeeMutation } = employeeApi;
+export const { useAddEmployeeMutation, useGetEmployeesQuery, useGetAnEmployeeQuery } = employeeApi;
