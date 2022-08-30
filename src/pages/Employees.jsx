@@ -19,7 +19,7 @@ import EmptyFetch from "../components/Empty/EmptyFetch";
 
 export const initialEmployeeQuery = {
   page: 1,
-  limit: 12,
+  limit: 10,
   department: "",
   search_query: "",
 };
