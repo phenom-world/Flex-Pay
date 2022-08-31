@@ -41,7 +41,7 @@ const SignUp = () => {
   return (
     <GuestRoute>
       <LoadingModal />
-      <div className="flex w-full h-full bg-gradient md:bg-none">
+      <div className="flex w-full h-screen bg-gradient md:bg-none pt-[50px] md:pt-0">
         <div className="w-[25%] bg-orange md:flex flex-col justify-end h-screen fixed hidden">
           <img src={Image01} alt="" />
         </div>
