@@ -95,7 +95,7 @@ const Employees = () => {
                 <div className="mt-4 mr-4">
                   <XCancel close={close} />
                 </div>
-                <div className="px-[24px] pb-[32px] w-full md:w-[500px] h-[auto]">
+                <div className="px-[24px] pb-[32px] w-[300px] md:w-[500px] h-[auto]">
                   <Formik
                     onSubmit={(values) => handleOnSubmit(values, close)}
                     validationSchema={EmployeeSchema}
