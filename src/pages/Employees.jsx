@@ -35,7 +35,7 @@ const Employees = () => {
   };
 
   const handleChange = (e) => {
-    setQuery({ ...query, search_query: e.target.value });
+    setQuery({ ...query, search_query: e.target.value, page: 1 });
   };
 
   const handleOnSubmit = (values, close) => {

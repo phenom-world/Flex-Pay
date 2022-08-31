@@ -41,21 +41,22 @@ const SignUp = () => {
   return (
     <GuestRoute>
       <LoadingModal />
-      <div className="flex w-full h-screen">
-        <div className="w-[25%] bg-orange flex flex-col justify-end">
+      <div className="flex w-full h-full">
+        <div className="w-[25%] bg-orange flex flex-col justify-end h-screen fixed">
           <img src={Image01} alt="" />
         </div>
+        <div className="w-[25%] bg-orange flex flex-col justify-end h-screen "></div>
         <Formik onSubmit={submitHandler} initialValues={initialCompanyDetailsValues} validationSchema={CompanyDetailsSchema}>
           {({ handleSubmit }) => (
-            <div className="w-[65%] flex flex-col items-center justify-center">
+            <div className=" w-full flex flex-col items-center justify-center">
               <div>
-                <div className=" pb-5">
+                <div className="pb-3">
                   <p className="text-2xl font-normal">
                     Sign Up on <span className="font-bold">FlexPay</span>
                   </p>
                   <p className="text-sm">Give your employees more reason to stay</p>
                 </div>
-                <div className="pt-5">
+                <div className="pt-2">
                   <label>Company Name</label>
                   <div className="mt-1 relative flex justify-end">
                     <Field
@@ -69,7 +70,7 @@ const SignUp = () => {
                     render={(msg) => <div className={"text-[0.7812rem] text-red-600 text-left font-normal text-jumbleng-gray-main"}>{msg}</div>}
                   />
                 </div>
-                <div className="pt-5">
+                <div className="pt-2">
                   <label>Company Email</label>
                   <div className="mt-1 relative flex justify-end">
                     <Field
@@ -83,7 +84,7 @@ const SignUp = () => {
                     render={(msg) => <div className={"text-[0.7812rem] text-red-600 text-left font-normal text-jumbleng-gray-main"}>{msg}</div>}
                   />{" "}
                 </div>
-                <div className="pt-5">
+                <div className="pt-2">
                   <label>Address</label>
                   <div className="mt-1 relative flex justify-end">
                     <Field
@@ -97,7 +98,7 @@ const SignUp = () => {
                     render={(msg) => <div className={"text-[0.7812rem] text-red-600 text-left font-normal text-jumbleng-gray-main"}>{msg}</div>}
                   />{" "}
                 </div>
-                <div className="pt-5">
+                <div className="pt-2">
                   <label>Phone Number</label>
                   <div className="mt-1 relative flex justify-end">
                     <Field
@@ -111,7 +112,7 @@ const SignUp = () => {
                     render={(msg) => <div className={"text-[0.7812rem] text-red-600 text-left font-normal text-jumbleng-gray-main"}>{msg}</div>}
                   />{" "}
                 </div>
-                <div className="pt-5">
+                <div className="pt-2">
                   <label>Password</label>
                   <div className="mt-1 relative flex justify-end">
                     <Field
@@ -130,7 +131,7 @@ const SignUp = () => {
                     render={(msg) => <div className={"text-[0.7812rem] text-red-600 text-left font-normal text-jumbleng-gray-main"}>{msg}</div>}
                   />{" "}
                 </div>
-                <div className="pt-5">
+                <div className="pt-2">
                   <label>Confirm Password</label>
                   <div className="mt-1 relative flex justify-end">
                     <Field

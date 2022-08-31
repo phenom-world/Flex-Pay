@@ -51,8 +51,11 @@ const Login = () => {
   return (
     <GuestRoute>
       <LoadingModal />
-      <div className="flex w-full h-screen">
-        <div className="w-[25%] bg-orange flex justify-end">
+      <div className="flex w-full h-full">
+        <div className="w-[25%] bg-orange flex justify-end fixed h-scree">
+          <img src={Image02} alt="" />
+        </div>
+        <div className="w-[25%] bg-orange flex justify-end h-screen">
           <img src={Image02} alt="" />
         </div>
         <Formik onSubmit={submitHandler} initialValues={initialSigninValues} validationSchema={signinSchema}>
