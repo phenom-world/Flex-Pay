@@ -18,3 +18,7 @@ select:not([multiple]) {
   padding-right: 1.5em;
   border: gray solid 1px;
 }
+
+select:focus {
+  outline: none;
+}
