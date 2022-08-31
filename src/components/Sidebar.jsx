@@ -16,10 +16,10 @@ const Sidebar = () => {
   };
 
   return (
-    <div className="w-[20%] h-screen bg-[#030729] flex flex-col justify-between pb-10 sticky top-0 overflow-hidden">
+    <div className="px-10  w-[20%] h-screen bg-[#030729] xl:flex flex-col justify-between pb-10 sticky top-0 hidden">
       <div>
-        <p className="ml-12 py-7 text-xl text-white font-semibold">Flexpay</p>
-        <div className="ml-10 w-full">
+        <p className="py-7 text-xl text-white font-semibold">Flexpay</p>
+        <div className="w-full">
           <Link to="/dashboard">
             <div
               className={`flex items-center text-white text-lg mb-7 font-semibold px-5 cursor-pointer py-3 ${
@@ -82,7 +82,7 @@ const Sidebar = () => {
           </Link>
         </div>
       </div>
-      <div className=" flex items-center text-lg  ml-10 px-5 font-semibold cursor-pointer" onClick={handleLogout}>
+      <div className=" flex items-center text-lg px-5 font-semibold cursor-pointer" onClick={handleLogout}>
         <BsArrowRightShort className="text-3xl mr-7 bg-white text-flex-purple" />
         <p className="text-white">Logout</p>
       </div>

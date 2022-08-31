@@ -115,7 +115,7 @@ const Employees = () => {
                           <ErrorMessage
                             name={"name"}
                             render={(msg) => (
-                              <div className={"text-[0.7812rem] text-red-600 text-left font-normal text-jumbleng-gray-main"}>{msg}</div>
+                              <div className={"text-[0.7812rem] text-red-600 text-left font-normal "}>{msg}</div>
                             )}
                           />
                         </div>
@@ -131,7 +131,7 @@ const Employees = () => {
                           <ErrorMessage
                             name={"email"}
                             render={(msg) => (
-                              <div className={"text-[0.7812rem] text-red-600 text-left font-normal text-jumbleng-gray-main"}>{msg}</div>
+                              <div className={"text-[0.7812rem] text-red-600 text-left font-normal "}>{msg}</div>
                             )}
                           />{" "}
                         </div>
@@ -147,7 +147,7 @@ const Employees = () => {
                           <ErrorMessage
                             name={"role"}
                             render={(msg) => (
-                              <div className={"text-[0.7812rem] text-red-600 text-left font-normal text-jumbleng-gray-main"}>{msg}</div>
+                              <div className={"text-[0.7812rem] text-red-600 text-left font-normal "}>{msg}</div>
                             )}
                           />{" "}
                         </div>
@@ -158,7 +158,7 @@ const Employees = () => {
                               as={"select"}
                               name={"department"}
                               placeholder={"Select department"}
-                              className={"w-full  placeholder:text-[0.78125rem] border-0 focus:outline-none"}
+                              className={"w-full  placeholder:text-[0.78125rem] border border-[#8E8E8E] focus:outline-none"}
                             >
                               <option value="">Select a department </option>
                               <option value="Engineering">Product</option>
@@ -192,7 +192,7 @@ const Employees = () => {
                           <ErrorMessage
                             name={"salary"}
                             render={(msg) => (
-                              <div className={"text-[0.7812rem] text-red-600 text-left font-normal text-jumbleng-gray-main"}>{msg}</div>
+                              <div className={"text-[0.7812rem] text-red-600 text-left font-normal "}>{msg}</div>
                             )}
                           />{" "}
                         </div>

@@ -5,7 +5,7 @@ import AuthRoute from "./AuthRoute";
 const Wrapper = ({ logout, children }) => {
   return (
     <AuthRoute>
-      <div className="flex">
+      <div className="flex md:flex-row flex-col gap-3">
         <Sidebar />
         {children}
       </div>

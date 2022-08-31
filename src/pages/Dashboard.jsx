@@ -12,18 +12,18 @@ import Wrapper from "../HOC/Wrapper";
 const Dashboard = () => {
   return (
     <Wrapper>
-      <div className="w-[60%] mx-5 mt-5">
+      <div className="w-full md:w-[60%] mt-5 p-3 md:p-0 md:mx-5">
         <Navbar navbar="Dashboard" />
         <DashBalance />
         <div>
           <div className="flex justify-between items-center mb-5">
             <p className="flex text-2xl font-extrabold">Recent Transactions</p>
-            <p className="flex text-base font-semibold">View more</p>
+            <p className="md:flex text-base font-semibold hidden">View more</p>
           </div>
           <Transcation />
         </div>
       </div>
-      <div className="w-[20%] mr-10 ml-5 mt-5">
+      <div className="md:mt-5 mx-3 md:mx-0 md:mr-5">
         <Overview />
         <div className="border-4 border-[#EDEDFE] rounded-lg pt-5 px-5 pb-8">
           <p className="text-xl font-extrabold mb-12">Employee Overview</p>
