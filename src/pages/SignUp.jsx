@@ -41,20 +41,20 @@ const SignUp = () => {
   return (
     <GuestRoute>
       <LoadingModal />
-      <div className="flex w-full h-full">
-        <div className="w-[25%] bg-orange flex flex-col justify-end h-screen fixed">
+      <div className="flex w-full h-full bg-gradient md:bg-none">
+        <div className="w-[25%] bg-orange md:flex flex-col justify-end h-screen fixed hidden">
           <img src={Image01} alt="" />
         </div>
-        <div className="w-[25%] bg-orange flex flex-col justify-end h-screen "></div>
+        <div className="w-[25%] bg-orange md:flex flex-col justify-end h-screen hidden "></div>
         <Formik onSubmit={submitHandler} initialValues={initialCompanyDetailsValues} validationSchema={CompanyDetailsSchema}>
           {({ handleSubmit }) => (
-            <div className=" w-full flex flex-col items-center justify-center">
+            <div className=" w-full h-screen flex flex-col items-center justify-center">
               <div>
                 <div className="pb-3">
                   <p className="text-2xl font-normal">
                     Sign Up on <span className="font-bold">FlexPay</span>
                   </p>
-                  <p className="text-sm">Give your employees more reason to stay</p>
+                  <p className="text-sm ">Give your employees more reason to stay</p>
                 </div>
                 <div className="pt-2">
                   <label>Company Name</label>
@@ -62,7 +62,7 @@ const SignUp = () => {
                     <Field
                       name={"company_name"}
                       placeholder={"Input company name"}
-                      className="border w-[500px] h-[40px] border-[#030729] opacity-50 rounded px-2  focus:outline-none "
+                      className="border w-full md:w-[500px] h-[40px] border-[#030729] opacity-50 rounded px-2  focus:outline-none "
                     />
                   </div>
                   <ErrorMessage
@@ -76,7 +76,7 @@ const SignUp = () => {
                     <Field
                       name={"email"}
                       placeholder={"Input company email"}
-                      className="border w-[500px] h-[40px] border-[#030729] opacity-50 rounded px-2  focus:outline-none "
+                      className="border w-full md:w-[500px] h-[40px] border-[#030729] opacity-50 rounded px-2  focus:outline-none "
                     />
                   </div>
                   <ErrorMessage
@@ -90,7 +90,7 @@ const SignUp = () => {
                     <Field
                       name={"address"}
                       placeholder={"Input address "}
-                      className="border w-[500px] h-[40px] border-[#030729] opacity-50 rounded px-2  focus:outline-none "
+                      className="border w-full md:w-[500px] h-[40px] border-[#030729] opacity-50 rounded px-2  focus:outline-none "
                     />
                   </div>
                   <ErrorMessage
@@ -104,7 +104,7 @@ const SignUp = () => {
                     <Field
                       name={"phone_number"}
                       placeholder={"Input phone number "}
-                      className="border w-[500px] h-[40px] border-[#030729] opacity-50 rounded px-2  focus:outline-none "
+                      className="border w-full md:w-[500px] h-[40px] border-[#030729] opacity-50 rounded px-2  focus:outline-none "
                     />
                   </div>
                   <ErrorMessage
@@ -119,7 +119,7 @@ const SignUp = () => {
                       name={"password"}
                       placeholder={"XXXXXXXXX"}
                       type={`${showPassword ? "text" : "password"}`}
-                      className="border w-[500px] h-[40px] border-[#030729] opacity-50 rounded px-2  focus:outline-none "
+                      className="border w-full md:w-[500px] h-[40px] border-[#030729] opacity-50 rounded px-2  focus:outline-none "
                     />
                     <i
                       onClick={togglePassword}
@@ -141,7 +141,7 @@ const SignUp = () => {
                       }}
                       type={`${showPassword ? "text" : "password"}`}
                       placeholder={"XXXXXXXXX"}
-                      className="border relative w-[500px] h-[40px] border-[#030729] opacity-50 rounded px-2  focus:outline-none "
+                      className="border relative w-full md:w-[500px] h-[40px] border-[#030729] opacity-50 rounded px-2  focus:outline-none "
                     />
 
                     <i
@@ -157,7 +157,7 @@ const SignUp = () => {
               </div>
               <button
                 onClick={handleSubmit}
-                className="w-[500px] h-[50px] bg-orange rounded-lg mt-7 text-white text-base font-semibold hover:text-orange hover:bg-white hover:border-2 hover:border-orange"
+                className="w-[200px] md:w-[500px] h-[50px] bg-orange rounded-lg mt-7 text-white text-base font-semibold hover:text-orange hover:bg-white hover:border-2 hover:border-orange"
               >
                 SIGNUP
               </button>

@@ -51,18 +51,18 @@ const Login = () => {
   return (
     <GuestRoute>
       <LoadingModal />
-      <div className="flex w-full h-full">
-        <div className="w-[25%] bg-orange flex justify-end fixed h-scree">
+      <div className="flex w-full h-full bg-gradient md:bg-none">
+        <div className="w-[25%] bg-orange md:flex justify-end fixed h-screen hidden ">
           <img src={Image02} alt="" />
         </div>
-        <div className="w-[25%] bg-orange flex justify-end h-screen">
+        <div className="w-[25%] bg-orange md:flex justify-end h-screen hidden">
           <img src={Image02} alt="" />
         </div>
         <Formik onSubmit={submitHandler} initialValues={initialSigninValues} validationSchema={signinSchema}>
           {({ handleSubmit }) => (
-            <div className="w-[65%] flex flex-col items-center justify-center">
+            <div className="w-full h-screen md:w-[65%] flex flex-col items-center justify-center">
               <div>
-                <div className=" pb-2">
+                <div className="pb-8 md:pb-2">
                   <p className="text-2xl font-extrabold pb-1">
                     Welcome <span className="text-orange">Back!</span>
                   </p>
@@ -70,11 +70,11 @@ const Login = () => {
                 </div>
                 <div className="pt-5">
                   <label>Company Email</label>
-                  <div className="mt-1 relative flex justify-end">
+                  <div className="mt-1 relative flex md:justify-end">
                     <Field
                       name={"email"}
                       placeholder={"Input company email"}
-                      className="border w-[500px] h-[40px] border-[#030729] opacity-50 rounded px-2  focus:outline-none "
+                      className="border w-full md:w-[500px] h-[40px] border-[#030729] opacity-50 rounded px-2 focus:outline-none "
                     />
                   </div>
                   <ErrorMessage
@@ -84,7 +84,7 @@ const Login = () => {
                 </div>
                 <div className="pt-5">
                   <label>Password</label>
-                  <div className="mt-1 relative flex justify-end">
+                  <div className="mt-1 relative flex md:justify-end">
                     <Field
                       name={"password"}
                       onKeyDown={(e) => {
@@ -92,7 +92,7 @@ const Login = () => {
                       }}
                       placeholder={"XXXXXXXXX"}
                       type={`${showPassword ? "text" : "password"}`}
-                      className="border w-[500px] h-[40px] border-[#030729] opacity-50 rounded px-2  focus:outline-none "
+                      className="border w-full md:w-[500px] h-[40px] border-[#030729] opacity-50 rounded px-2  focus:outline-none "
                     />
                     {!err && (
                       <i
@@ -109,7 +109,7 @@ const Login = () => {
               </div>
               <button
                 onClick={handleSubmit}
-                className="w-[500px] h-[50px] bg-orange rounded-lg mt-7 text-white text-base font-semibold hover:text-orange hover:bg-white hover:border-2 hover:border-orange"
+                className="w-[200px] md:w-[500px] h-[50px] bg-orange rounded-lg mt-7 text-white text-base font-semibold hover:text-orange hover:bg-white hover:border-2 hover:border-orange"
               >
                 LOGIN
               </button>
