@@ -19,7 +19,7 @@ const Settings = () => {
   };
   return (
     <Wrapper>
-      <div className="sm:w-[60%] mx-5 mt-5">
+      <div className="sm:w-[60%] mx-5 mt-5 w-full">
         <Navbar navbar="Settings" />
         <p className="font-semibold sm:hidden text-xl mb-3">Settings</p>
         <div className="shadow-3xl px-10 rounded-lg mt-20 pb-10 hidden sm:block">
@@ -68,7 +68,7 @@ const Settings = () => {
             <p className="cursor-pointer text-orange text-sm font-semibold">Edit</p>
           </div>
 
-          <div>
+          <div className="w-full">
             <p className="text-sm text-[#959BA7] font-semibold mb-5">Card Information</p>
             <div className="flex justify-between">
               <div className="w-[45%] bg-[#F8F8F9] p-3 rounded-lg">
@@ -93,8 +93,8 @@ const Settings = () => {
           </button>
           <Formik onSubmit={() => console.log(123)} initialValues={initialCompanyDetailsValues} validationSchema={CompanyDetailsSchema}>
             {({ handleSubmit }) => (
-              <div className=" w-full mt-4 flex flex-col items-center justify-center sm:hidden">
-                <div>
+              <div className=" w-full mt-4  flex flex-col items-center justify-center sm:hidden">
+                <div className="w-full px-8">
                   <div className="pt-2">
                     <label>Company Name</label>
                     <div className="mt-1 relative flex justify-end">
@@ -139,14 +139,14 @@ const Settings = () => {
                     />{" "}
                   </div>
                 </div>
-                <div className="pt-2">
+                <div className="pt-2 w-full px-8">
                   <label>Country</label>
                   <div className="mt-1 relative flex justify-end ">
                     <Field
                       as={"select"}
                       name={"department"}
                       placeholder={"Select department"}
-                      className={"w-[210px] placeholder:text-[0.78125rem] border border-[#030729] opacity-50 rounded px-2  focus:outline-none"}
+                      className={"w-full placeholder:text-[0.78125rem] border border-[#030729] opacity-50 rounded px-2  focus:outline-none"}
                     >
                       <option value="">Select a country </option>
                     </Field>
@@ -156,10 +156,10 @@ const Settings = () => {
                     render={(msg) => <div className={"text-[0.7812rem] text-red-600 text-left font-normal text-gray"}>{msg}</div>}
                   />{" "}
                 </div>
-                <div className="mt-10">
+                <div className="mt-10 w-full px-8">
                   <p className="text-sm text-[#959BA7] font-semibold mb-5">Card Information</p>
-                  <div className="flex justify-between">
-                    <div className="bg-[#F8F8F9] p-3 rounded-lg">
+                  <div className="flex justify-between w-full">
+                    <div className="bg-[#F8F8F9] p-3 rounded-lg w-full">
                       <img src={Visa} alt="" />
                       <input type="text" placeholder="**** **** **** 8456" className="bg-[#F8F8F9] focus:outline-none w-full mt-2" />
                     </div>

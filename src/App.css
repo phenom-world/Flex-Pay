@@ -22,4 +22,3 @@ select:not([multiple]) {
 select:focus {
   outline: none;
 }
-
