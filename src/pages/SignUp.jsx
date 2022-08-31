@@ -41,7 +41,7 @@ const SignUp = () => {
   return (
     <GuestRoute>
       <LoadingModal />
-      <div className="flex w-full h-screen bg-gradient md:bg-none pt-[50px] md:pt-0">
+      <div className="flex w-full h-full bg-gradient md:bg-none pt-[50px] md:pt-0">
         <div className="w-[25%] bg-orange md:flex flex-col justify-end h-screen fixed hidden">
           <img src={Image01} alt="" />
         </div>
@@ -157,7 +157,7 @@ const SignUp = () => {
               </div>
               <button
                 onClick={handleSubmit}
-                className="w-[200px] md:w-[500px] h-[50px] bg-orange rounded-lg mt-7 text-white text-base font-semibold hover:text-orange hover:bg-white hover:border-2 hover:border-orange"
+                className="w-[200px] md:w-[500px] min-h-[50px] bg-orange rounded-lg mt-7 text-white text-base font-semibold hover:text-orange hover:bg-white hover:border-2 hover:border-orange"
               >
                 SIGNUP
               </button>
