@@ -68,7 +68,6 @@ const Login = () => {
                   </p>
                   <p className="text-sm">Give your employees more reason to stay</p>
                 </div>
-                {/* <Input label="Company Email" /> */}
                 <div className="pt-5">
                   <label>Company Email</label>
                   <div className="mt-1 relative flex justify-end">
