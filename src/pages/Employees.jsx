@@ -238,7 +238,7 @@ const Employees = () => {
           </>
         )}
       </div>
-      <div className="w-[20%] mr-10 ml-5">
+      <div className="w-[20%] mr-10 ml-5 mt-5">
         <Overview />
       </div>
     </Wrapper>

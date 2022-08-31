@@ -23,9 +23,9 @@ const Dashboard = () => {
           <Transcation />
         </div>
       </div>
-      <div className="w-[20%] mr-10 ml-5">
+      <div className="w-[20%] mr-10 ml-5 mt-5">
         <Overview />
-        <div className="border-4 border-[#EDEDFE] rounded-lg pt-5 px-5 pb-16">
+        <div className="border-4 border-[#EDEDFE] rounded-lg pt-5 px-5 pb-8">
           <p className="text-xl font-extrabold mb-12">Employee Overview</p>
           <p className="text-sm font-semibold text-[ #171717] mb-2">Top Earning Employees</p>
           <div className="flex items-center mb-5">
