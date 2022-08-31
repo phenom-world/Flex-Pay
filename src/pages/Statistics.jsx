@@ -10,42 +10,41 @@ import Wrapper from "../HOC/Wrapper";
 const Statistics = () => {
   return (
     <Wrapper>
-      <div className="w-[60%] mx-5 mt-5">
+      <div className="sm:w-[60%] mx-5 mt-5">
         <Navbar navbar="Statistics" />
-        <div className="flex">
-          <div className="w-[40%]">
-            <Overview trans />
-            <div className="border-4 border-[#EDEDFE] rounded-lg pt-5 px-5 pb-2">
-              <div className="mb-5">
-                <p className="text-xl font-extrabold">Employee Overview</p>
-                <p className="text-sm text-[#171717] font-semibold">June 2022</p>
-              </div>
-              <p className="text-sm font-semibold text-[ #171717] mb-2">Top Earning Employees</p>
-              <div className="flex items-center mb-5">
-                <img src={Image1} alt="" className="mr-2" />
-                <img src={Image2} alt="" className="mr-2" />
-                <img src={Image3} alt="" className="mr-2" />
-                <img src={Image4} alt="" className="mr-2" />
-              </div>
-            </div>
-          </div>
-          <div className=" ml-10">
+        <p className="font-semibold sm:hidden text-xl mb-3">Statistics</p>
+        <div className="flex md:flex-row flex-col">
+          <Overview trans />
+          <div className=" sm:ml-10 order-2">
             <div className="mb-5">
               <p className="text-xl">Total</p>
-              <p className="text-[40px] font-extrabold">$5,000,000.00</p>
+              <p className="text-[30px] sm:text-[30px] sm:text-[40px]  font-extrabold">$5,000,000.00</p>
             </div>
             <div className="mb-5">
               <p className="text-xl">Earned Interest</p>
-              <p className="text-[40px] font-extrabold">$10,000.00</p>
+              <p className="text-[30px] sm:text-[40px] font-extrabold">$10,000.00</p>
             </div>
             <div className="mb-5">
               <p className="text-xl">Company Expenses </p>
-              <p className="text-[40px] font-extrabold">$40,000.00</p>
+              <p className="text-[30px] sm:text-[40px] font-extrabold">$40,000.00</p>
             </div>
             <div className="mb-5">
               <p className="text-xl">Loans to employees</p>
-              <p className="text-[40px] font-extrabold">$500,000.00</p>
+              <p className="text-[30px] sm:text-[40px] font-extrabold">$500,000.00</p>
             </div>
+          </div>
+        </div>
+        <div className="border-4 border-[#EDEDFE] rounded-lg pt-5 px-5 pb-2 sm:w-[350px]">
+          <div className="mb-5">
+            <p className="text-xl font-extrabold">Employee Overview</p>
+            <p className="text-sm text-[#171717] font-semibold">June 2022</p>
+          </div>
+          <p className="text-sm font-semibold text-[ #171717] mb-2">Top Earning Employees</p>
+          <div className="flex items-center mb-5 ">
+            <img src={Image1} alt="" className="mr-2" />
+            <img src={Image2} alt="" className="mr-2" />
+            <img src={Image3} alt="" className="mr-2" />
+            <img src={Image4} alt="" className="mr-2" />
           </div>
         </div>
       </div>

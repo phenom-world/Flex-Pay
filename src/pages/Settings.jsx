@@ -7,6 +7,8 @@ import Visa from "../assets/image 13.png";
 import Wrapper from "../HOC/Wrapper";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleSettingsTab } from "../redux/slices/tabs";
+import { ErrorMessage, Field, Formik } from "formik";
+import { CompanyDetailsSchema, initialCompanyDetailsValues } from "../schemas/company";
 
 const Settings = () => {
   const { settingsTab } = useSelector((state) => state.tabsReducer);
@@ -17,9 +19,10 @@ const Settings = () => {
   };
   return (
     <Wrapper>
-      <div className="w-[60%] mx-5 mt-5">
+      <div className="sm:w-[60%] mx-5 mt-5">
         <Navbar navbar="Settings" />
-        <div className="shadow-3xl px-10 rounded-lg mt-20 pb-10">
+        <p className="font-semibold sm:hidden text-xl mb-3">Settings</p>
+        <div className="shadow-3xl px-10 rounded-lg mt-20 pb-10 hidden sm:block">
           <div className="flex justify-between pt-5 mb-5">
             <div
               className={`flex items-center w-[50%] justify-center  cursor-pointer ${
@@ -80,7 +83,7 @@ const Settings = () => {
           </div>
         </div>
       </div>
-      <div className="mt-36  w-[20%] mr-10">
+      <div className="md:mt-36 w-full sm:w-[20%] mr-10">
         <div className="shadow-3xl flex flex-col items-center pb-40 rounded-lg">
           <img src={Profile} alt="" className="pt-5" />
           <p className="pt-5 text-lg font-extrabold text-[#383B43]">Ovalfi Admin</p>
@@ -88,6 +91,109 @@ const Settings = () => {
           <button className="mt-5 py-2 px-4 bg-orange text-white font-semibold text-sm rounded-lg hover:border-2 border-orange hover:bg-white hover:text-orange">
             Change Image
           </button>
+          <Formik onSubmit={() => console.log(123)} initialValues={initialCompanyDetailsValues} validationSchema={CompanyDetailsSchema}>
+            {({ handleSubmit }) => (
+              <div className=" w-full mt-4 flex flex-col items-center justify-center sm:hidden">
+                <div>
+                  <div className="pt-2">
+                    <label>Company Name</label>
+                    <div className="mt-1 relative flex justify-end">
+                      <Field
+                        name={"company_name"}
+                        placeholder={"Input company name"}
+                        className="border w-full md:w-[500px] h-[40px] border-[#030729] opacity-50 rounded px-2  focus:outline-none "
+                      />
+                    </div>
+                    <ErrorMessage
+                      name={"company_name"}
+                      render={(msg) => <div className={"text-[0.7812rem] text-red-600 text-left font-normal text-jumbleng-gray-main"}>{msg}</div>}
+                    />
+                  </div>
+                  <div className="pt-2">
+                    <label>Company Email</label>
+                    <div className="mt-1 relative flex justify-end">
+                      <Field
+                        name={"email"}
+                        placeholder={"Input company email"}
+                        className="border w-full md:w-[500px] h-[40px] border-[#030729] opacity-50 rounded px-2  focus:outline-none "
+                      />
+                    </div>
+                    <ErrorMessage
+                      name={"email"}
+                      render={(msg) => <div className={"text-[0.7812rem] text-red-600 text-left font-normal text-jumbleng-gray-main"}>{msg}</div>}
+                    />{" "}
+                  </div>
+
+                  <div className="pt-2">
+                    <label>Phone Number</label>
+                    <div className="mt-1 relative flex justify-end">
+                      <Field
+                        name={"phone_number"}
+                        placeholder={"Input phone number "}
+                        className="border w-full md:w-[500px] h-[40px] border-[#030729] opacity-50 rounded px-2  focus:outline-none "
+                      />
+                    </div>
+                    <ErrorMessage
+                      name={"phone_number"}
+                      render={(msg) => <div className={"text-[0.7812rem] text-red-600 text-left font-normal text-jumbleng-gray-main"}>{msg}</div>}
+                    />{" "}
+                  </div>
+                </div>
+                <div className="pt-2">
+                  <label>Country</label>
+                  <div className="mt-1 relative flex justify-end ">
+                    <Field
+                      as={"select"}
+                      name={"department"}
+                      placeholder={"Select department"}
+                      className={"w-[210px] placeholder:text-[0.78125rem] border border-[#030729] opacity-50 rounded px-2  focus:outline-none"}
+                    >
+                      <option value="">Select a country </option>
+                    </Field>
+                  </div>
+                  <ErrorMessage
+                    name={"role"}
+                    render={(msg) => <div className={"text-[0.7812rem] text-red-600 text-left font-normal text-gray"}>{msg}</div>}
+                  />{" "}
+                </div>
+                <div className="mt-10">
+                  <p className="text-sm text-[#959BA7] font-semibold mb-5">Card Information</p>
+                  <div className="flex justify-between">
+                    <div className="bg-[#F8F8F9] p-3 rounded-lg">
+                      <img src={Visa} alt="" />
+                      <input type="text" placeholder="**** **** **** 8456" className="bg-[#F8F8F9] focus:outline-none w-full mt-2" />
+                    </div>
+                  </div>
+                </div>
+                <div className="mt-10 w-full p-8">
+                  <p className="text-sm text-[#959BA7] font-semibold mb-5">Account</p>
+                  <div className="flex justify-between w-full">
+                    <div className="bg-[#F8F8F9] p-3 rounded-lg w-full">
+                      <div className="w-full flex gap-2">
+                        <input type="text" placeholder="Zenith Bank" className="bg-[#F8F8F9] min-w-[100px] focus:outline-none mt-2" />
+                        <input type="text" placeholder="042264771" className="bg-[#F8F8F9] min-w-[100px] focus:outline-none mt-2" />
+                      </div>
+                    </div>
+                  </div>
+                  <div className="flex justify-between w-full mt-2">
+                    <div className="bg-[#F8F8F9] p-3 rounded-lg w-full">
+                      <div className="w-full flex gap-2">
+                        <input type="text" placeholder="Zenith Bank" className="bg-[#F8F8F9] min-w-[100px] focus:outline-none mt-2" />
+                        <input type="text" placeholder="042264771" className="bg-[#F8F8F9] min-w-[100px] focus:outline-none mt-2" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <button
+                  onClick={handleSubmit}
+                  className="w-[200px] md:w-[500px] min-h-[50px] bg-orange rounded-lg mt-7 text-white text-base font-semibold hover:text-orange hover:bg-white hover:border-2 hover:border-orange"
+                >
+                  Update Profile
+                </button>
+              </div>
+            )}
+          </Formik>
         </div>
       </div>
     </Wrapper>

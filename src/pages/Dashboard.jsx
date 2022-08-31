@@ -14,6 +14,7 @@ const Dashboard = () => {
     <Wrapper>
       <div className="w-full md:w-[60%] mt-5 p-3 md:p-0 md:mx-5">
         <Navbar navbar="Dashboard" />
+        <p className="font-semibold sm:hidden text-xl mb-3">Dashboard</p>
         <DashBalance />
         <div>
           <div className="flex justify-between items-center mb-5">
