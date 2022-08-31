@@ -49,7 +49,7 @@ const SignUp = () => {
         <Formik onSubmit={submitHandler} initialValues={initialCompanyDetailsValues} validationSchema={CompanyDetailsSchema}>
           {({ handleSubmit }) => (
             <div className=" w-full h-screen flex flex-col items-center justify-center">
-              <div>
+              <div className="w-full md:w-auto px-6 md:px-0">
                 <div className="pb-3">
                   <p className="text-2xl font-normal">
                     Sign Up on <span className="font-bold">FlexPay</span>
