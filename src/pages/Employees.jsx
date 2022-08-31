@@ -67,7 +67,7 @@ const Employees = () => {
             onChange={handleChange}
             type="text"
             placeholder="Search for employees"
-            className="border border-[#8E8E8E] w-full h-12 rounded-lg p-4"
+            className="border border-[#8E8E8E] focus:outline-none w-full h-12 rounded-lg p-4"
           />
           <TbSearch className="absolute top-3 right-4 text-xl" />
         </div>
@@ -200,7 +200,7 @@ const Employees = () => {
                           onClick={handleSubmit}
                           className="text-white bg-orange mt-8 hover:text-orange hover:bg-white text-base font-bold border-2 border-orange rounded-full p-2 hover:bg-orange hover:text-white w-full"
                         >
-                          Submit{" "}
+                          Submit <i className="fa fa-solid fa-arrow-right ml-2"></i>
                         </button>
                       </>
                     )}

@@ -15,8 +15,8 @@ const Statistics = () => {
         <div className="flex">
           <div className="w-[40%]">
             <Overview trans />
-            <div className="border-4 border-[#EDEDFE] rounded-lg pt-5 px-5 pb-5">
-              <div className="mb-10">
+            <div className="border-4 border-[#EDEDFE] rounded-lg pt-5 px-5 pb-2">
+              <div className="mb-5">
                 <p className="text-xl font-extrabold">Employee Overview</p>
                 <p className="text-sm text-[#171717] font-semibold">June 2022</p>
               </div>
@@ -29,7 +29,7 @@ const Statistics = () => {
               </div>
             </div>
           </div>
-          <div className="mt-5 ml-10">
+          <div className=" ml-10">
             <div className="mb-5">
               <p className="text-xl">Total</p>
               <p className="text-[40px] font-extrabold">$5,000,000.00</p>

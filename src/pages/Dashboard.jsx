@@ -35,10 +35,10 @@ const Dashboard = () => {
             <img src={Image4} alt="" className="mr-2" />
           </div>
           <div className="mb-14">
-            <input type="text" placeholder="Enter amount" className="border border-[#8E8E8E] rounded-lg h-12 w-80% px-2" />
+            <input type="text" placeholder="Enter amount" className="border focus:outline-none border-[#8E8E8E] rounded-lg h-12 w-full px-2" />
           </div>
           <div className="flex justify-center">
-            <button className="px-16 py-4 bg-black text-white text-base font-bold hover:border-2 rounded-lg hover:text-black hover:bg-white">
+            <button className="px-12 py-4 w-full bg-black text-white text-base font-bold hover:border-2 rounded-lg hover:text-black hover:bg-white">
               Transfer Fund
             </button>
           </div>
