@@ -95,7 +95,7 @@ const Employees = () => {
                 <div className="mt-4 mr-4">
                   <XCancel close={close} />
                 </div>
-                <div className="px-[24px] pb-[32px] w-[500px] h-[auto]">
+                <div className="px-[24px] pb-[32px] w-full md:w-[500px] h-[auto]">
                   <Formik
                     onSubmit={(values) => handleOnSubmit(values, close)}
                     validationSchema={EmployeeSchema}
@@ -103,14 +103,14 @@ const Employees = () => {
                   >
                     {({ handleSubmit }) => (
                       <>
-                        <p className="text-[#131221] font-black  text-[24px] grid justify-center">Add Employees</p>
+                        <p className="text-[#131221] font-black text-[16px] md:text-[24px] grid justify-center">Add Employees</p>
                         <div className="pt-5">
                           <label>Name (first & last)</label>
                           <div className="mt-1 relative flex justify-end">
                             <Field
                               name={"name"}
                               placeholder={"Input Employee's full name"}
-                              className="border w-[500px] h-[40px] border-[#030729] opacity-50 rounded px-2  focus:outline-none "
+                              className="border w-full md:w-[500px] h-[40px] border-[#030729] opacity-50 rounded px-2  focus:outline-none "
                             />
                           </div>
                           <ErrorMessage
@@ -124,7 +124,7 @@ const Employees = () => {
                             <Field
                               name={"email"}
                               placeholder={"Input employee email"}
-                              className="border w-[500px] h-[40px] border-[#030729] opacity-50 rounded px-2  focus:outline-none "
+                              className="border w-full md:w-[500px] h-[40px] border-[#030729] opacity-50 rounded px-2  focus:outline-none "
                             />
                           </div>
                           <ErrorMessage
@@ -138,7 +138,7 @@ const Employees = () => {
                             <Field
                               name={"role"}
                               placeholder={"Input employee role"}
-                              className="border w-[500px] h-[40px] border-[#030729] opacity-50 rounded px-2  focus:outline-none "
+                              className="border w-full md:w-[500px] h-[40px] border-[#030729] opacity-50 rounded px-2  focus:outline-none "
                             />
                           </div>
                           <ErrorMessage
@@ -181,7 +181,7 @@ const Employees = () => {
                                 e.key === "Enter" && handleSubmit();
                               }}
                               placeholder={"Input salary "}
-                              className="border w-[500px] h-[40px] border-[#030729] opacity-50 rounded px-2  focus:outline-none "
+                              className="border w-full md:w-[500px] h-[40px] border-[#030729] opacity-50 rounded px-2  focus:outline-none "
                             />
                           </div>
                           <ErrorMessage
