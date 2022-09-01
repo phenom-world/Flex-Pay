@@ -22,7 +22,7 @@ const Navbar = ({ navbar }) => {
     if (toggleMenu === "open") {
       setTimeout(() => {
         animation.start("visible");
-      }, 500);
+      }, 100);
     } else {
       animation.start("hidden");
     }
@@ -36,7 +36,7 @@ const Navbar = ({ navbar }) => {
     },
     visible: {
       transition: {
-        staggerChildren: 0.3,
+        staggerChildren: 0.05,
       },
     },
   };
