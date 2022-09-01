@@ -14,9 +14,8 @@ const Sidebar = () => {
     dispatch({ type: "LOGOUT" });
     navigate("/");
   };
-
   return (
-    <div className="px-10  w-[20%] h-screen bg-[#030729] xl:flex flex-col justify-between pb-10 sticky top-0 hidden">
+    <div className="px-10  w-[20%] h-screen bg-[#030729] lg:flex flex-col justify-between pb-10 sticky top-0 hidden">
       <div>
         <p className="py-7 text-xl text-white font-semibold">Flexpay</p>
         <div className="w-full">
