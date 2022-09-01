@@ -77,7 +77,7 @@ const Navbar = ({ navbar }) => {
           }`}
         >
           <motion.div initial="hidden" animate={animation} variants={variants}>
-            <div className="text-xl w-full my-2 cursor-pointer justify-end flex mt-5 mb-16">
+            <div className="text-xl w-full my-2 cursor-pointer justify-end flex mt-5 mb-8">
               <AiOutlineClose onClick={() => setToggleMenu("close")} />
             </div>
             {["dashboard", "wallet", "employees", "transactions", "statistics", "settings"].map((item, index) => (
@@ -85,7 +85,7 @@ const Navbar = ({ navbar }) => {
                 <Link to={"/" + item}>
                   <motion.div
                     variants={v}
-                    className={`flex items-center text-white text-lg mb-7 font-semibold px-5 cursor-pointer py-3 ${
+                    className={`flex items-center text-white text-lg mb-5 font-semibold px-5 cursor-pointer py-3 ${
                       location.pathname === "/" + item && "text-center rounded-lg text-flex-purple bg-white w-[80%]"
                     }`}
                     onClick={() => setToggleMenu("close")}
