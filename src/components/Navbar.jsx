@@ -85,7 +85,7 @@ const Navbar = ({ navbar }) => {
                 <Link to={"/" + item}>
                   <motion.div
                     variants={v}
-                    className={`flex items-center text-white text-lg mb-5 font-semibold px-5 cursor-pointer py-3 ${
+                    className={`flex items-center text-white text-lg mb-3 font-semibold px-5 cursor-pointer py-3 ${
                       location.pathname === "/" + item && "text-center rounded-lg text-flex-purple bg-white w-[80%]"
                     }`}
                     onClick={() => setToggleMenu("close")}
@@ -108,8 +108,8 @@ const Navbar = ({ navbar }) => {
                 </Link>
               </div>
             ))}
-            <motion.div variants={v} className=" flex items-center text-lg px-5 font-semibold cursor-pointer" onClick={handleLogout}>
-              <BsArrowRightShort className="text-3xl mr-7 bg-white text-flex-purple" />
+            <motion.div variants={v} className=" flex items-center py-3 text-lg px-5 font-semibold cursor-pointer" onClick={handleLogout}>
+              <BsArrowRightShort className="text-3xl mr-7  bg-white text-flex-purple" />
               <p className="text-white">Logout</p>
             </motion.div>{" "}
           </motion.div>
