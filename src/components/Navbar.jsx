@@ -77,8 +77,8 @@ const Navbar = ({ navbar }) => {
           }`}
         >
           <motion.div initial="hidden" animate={animation} variants={variants}>
-            <div className="text-xl w-full my-2 cursor-pointer justify-end flex mt-5 mb-8">
-              <AiOutlineClose onClick={() => setToggleMenu("close")} />
+            <div className="text-xl my-2 justify-end flex mt-5 mb-8">
+              <AiOutlineClose onClick={() => setToggleMenu("close")} className="cursor-pointer" />
             </div>
             {["dashboard", "wallet", "employees", "transactions", "statistics", "settings"].map((item, index) => (
               <div key={item + index}>
