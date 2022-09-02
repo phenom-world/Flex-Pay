@@ -17,7 +17,7 @@ const DashBalance = () => {
 
   useEffect(() => {
     if (isSuccess) {
-      setBalance({ ...balance, sign: sign, value: data?.data.amount });
+      setBalance({ ...balance, sign: sign, value: data?.amount });
     }
     if (isError && error) {
       toast.error(error?.data?.message);
