@@ -7,7 +7,7 @@ export const employeeApi = createApi({
   tagTypes: ["employees"],
   endpoints: (builder) => ({
     getEmployees: builder.query({
-      query: ({ page, limit, department, search_query }) => createRequestWithParams(`company/employee`, { page, limit, department, search_query }),
+      query: (args) => createRequestWithParams(`auth/company/employee/all`, { page: args?.page, department: args?.department }),
       providesTags: (result, _error, _arg) =>
         result?.data ? [...result?.data.map(({ id }) => ({ type: "employees", id })), "employees"] : ["employees"],
     }),

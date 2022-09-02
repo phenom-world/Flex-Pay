@@ -12,7 +12,7 @@ export const baseQueryWithoutHeader = fetchBaseQuery({
 export const baseQuery = fetchBaseQuery({
   baseUrl: baseUrl,
   prepareHeaders: (headers, { getState }) => {
-    const authorization = JSON.parse(localStorage.getItem("auth")).tokens;
+    const authorization = getState().authStore.authorization;
     if (authorization?.access) {
       headers.set("authorization", `Bearer ${authorization?.access}`);
     }

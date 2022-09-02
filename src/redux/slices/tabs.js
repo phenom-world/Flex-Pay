@@ -1,14 +1,14 @@
 import { createSlice } from "@reduxjs/toolkit";
-import storageSession from "redux-persist/lib/storage/session";
+import storage from "redux-persist/lib/storage";
 
 const initialState = {
-  employeesTab: "all",
-  transactionsTab: "all",
+  employeesTab: "",
+  transactionsTab: "",
   settingsTab: "personal",
 };
 
 export const persistConfig = {
-  storage: storageSession,
+  storage: storage,
   key: "root",
 };
 

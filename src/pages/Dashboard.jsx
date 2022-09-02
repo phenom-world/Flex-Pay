@@ -10,6 +10,7 @@ import Image4 from "../assets/image4.png";
 import Wrapper from "../HOC/Wrapper";
 
 const Dashboard = () => {
+
   return (
     <Wrapper>
       <div className="w-full md:w-[60%] mt-5 p-3 md:p-0 md:mx-5">

@@ -3,7 +3,7 @@ import { configureStore } from "@reduxjs/toolkit";
 import { persistStore } from "redux-persist";
 
 import { rootReducer } from "../root-reducer";
-import { authApi, employeeApi } from "../services";
+import { authApi, employeeApi, walletApi } from "../services";
 
 export const store = configureStore({
   reducer: rootReducer,
@@ -15,6 +15,7 @@ export const store = configureStore({
     }),
     authApi.middleware,
     employeeApi.middleware,
+    walletApi.middleware,
   ],
   devTools: process.env.NODE_ENV !== "production",
   enhancers: [reduxBatch],

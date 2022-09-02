@@ -15,11 +15,9 @@ import { toast } from "react-toastify";
 import LoadingModal from "../components/LoadingModal";
 import { closeModal, openModal } from "../redux/modal/modalRedux";
 import { EmployeeSchema, initialEmployeeValues } from "../schemas/employee";
-import EmptyFetch from "../components/Empty/EmptyFetch";
 
 export const initialEmployeeQuery = {
   page: 1,
-  limit: 10,
   department: "",
   search_query: "",
 };
@@ -29,11 +27,12 @@ const Employees = () => {
   const [createEmployee, { isLoading, isSuccess, isError, error }] = useAddEmployeeMutation();
   const [query, setQuery] = useState(initialEmployeeQuery);
   const { data } = useGetEmployeesQuery(query);
+  const departments = ["Engineering", "Marketing", "Product", "Design"];
 
   const toggleTab = (tab) => {
     dispatch(toggleEmployeesTab(tab));
+    setQuery({ ...query, page: 1, department: tab.charAt(0).toUpperCase() + tab.slice(1) });
   };
-
   const handleChange = (e) => {
     setQuery({ ...query, search_query: e.target.value, page: 1 });
   };
@@ -156,15 +155,11 @@ const Employees = () => {
                               className={"w-full  placeholder:text-[0.78125rem] border border-[#8E8E8E] focus:outline-none"}
                             >
                               <option value="">Select a department </option>
-                              <option value="Engineering">Product</option>
-                              <option value="Engineering">Marketing</option>
-                              <option value="Engineering">Design</option>
-                              {/* {roles &&
-                                roles.map((item) => (
-                                  <option key={item.code} value={item.code}>
-                                    {item.name}
-                                  </option>
-                                ))} */}
+                              {departments.map((item) => (
+                                <option key={item} value={item}>
+                                  {item}
+                                </option>
+                              ))}
                             </Field>
                           </div>
                           <ErrorMessage
@@ -203,40 +198,37 @@ const Employees = () => {
             )}
           </Popup>
         </div>
-        {data?.data?.length === 0 && query.search_query === "" ? (
-          <EmptyFetch content={"No Employees added yet"} />
-        ) : (
-          <>
-            <select className="border py-2 px-2 border-gray sm:hidden rounded-lg mb-6">
-              <option>All</option>
-              <option>Engineering</option>
-              <option>Product</option>
-              <option>Marketing</option>
-              <option>Design</option>
-            </select>
-            <div className="sm:flex text-base font-bold text-[#8E8E8E] mb-10 hidden">
-              <p className={`mr-10 cursor-pointer ${employeesTab === "all" && "text-orange underline"}`} onClick={() => toggleTab("all")}>
-                All
-              </p>
-              <p
-                className={`mr-10 cursor-pointer ${employeesTab === "engineering" && "text-orange underline"}`}
-                onClick={() => toggleTab("engineering")}
-              >
-                Engineering
-              </p>
-              <p className={`mr-10 cursor-pointer ${employeesTab === "product" && "text-orange underline"}`} onClick={() => toggleTab("product")}>
-                Product
-              </p>
-              <p className={`mr-10 cursor-pointer ${employeesTab === "marketing" && "text-orange underline"}`} onClick={() => toggleTab("marketing")}>
-                Marketing
-              </p>
-              <p className={`mr-10 cursor-pointer ${employeesTab === "design" && "text-orange underline"}`} onClick={() => toggleTab("design")}>
-                Design
-              </p>
-            </div>
-            <EmployeesList data={data} query={query} setQuery={setQuery} />
-          </>
-        )}
+
+        <>
+          <select className="border py-2 px-2 border-gray sm:hidden rounded-lg mb-6">
+            <option>All</option>
+            <option>Engineering</option>
+            <option>Product</option>
+            <option>Marketing</option>
+            <option>Design</option>
+          </select>
+          <div className="sm:flex text-base font-bold text-[#8E8E8E] mb-10 hidden">
+            <p className={`mr-10 cursor-pointer ${employeesTab === "" && "text-orange underline"}`} onClick={() => toggleTab("")}>
+              All
+            </p>
+            <p
+              className={`mr-10 cursor-pointer ${employeesTab === "engineering" && "text-orange underline"}`}
+              onClick={() => toggleTab("engineering")}
+            >
+              Engineering
+            </p>
+            <p className={`mr-10 cursor-pointer ${employeesTab === "product" && "text-orange underline"}`} onClick={() => toggleTab("product")}>
+              Product
+            </p>
+            <p className={`mr-10 cursor-pointer ${employeesTab === "marketing" && "text-orange underline"}`} onClick={() => toggleTab("marketing")}>
+              Marketing
+            </p>
+            <p className={`mr-10 cursor-pointer ${employeesTab === "design" && "text-orange underline"}`} onClick={() => toggleTab("design")}>
+              Design
+            </p>
+          </div>
+          <EmployeesList data={data} query={query} setQuery={setQuery} />
+        </>
       </div>
       <div className="md:mt-5 mx-3 md:mx-0 md:mr-5">
         <Overview />

@@ -9,6 +9,7 @@ import { initialSigninValues, signinSchema } from "../schemas/company";
 import LoadingModal from "../components/LoadingModal";
 import { useDispatch } from "react-redux";
 import { closeModal, openModal } from "../redux/modal/modalRedux";
+import { setLoginUser } from "../redux/slices/auth";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -23,7 +24,7 @@ const Login = () => {
     }
     if (isSuccess) {
       navigate("/dashboard");
-      localStorage.setItem("auth", JSON.stringify(data?.data));
+      dispatch(setLoginUser(data));
       dispatch(closeModal());
     }
     if (isError && error) {
