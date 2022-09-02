@@ -9,16 +9,16 @@ import EmptyFetch from "./Empty/EmptyFetch";
 const EmployeesList = ({ query, setQuery, data }) => {
   const { isFetching } = useGetEmployeesQuery();
 
-  if (isFetching && query.search_query === "") {
+  if (isFetching && query.search === "") {
     return <Loading />;
   }
   return (
     <div>
-      {data?.results?.length === 0 && query.search_query !== "" ? (
+      {data?.results?.length === 0 && query.search !== "" ? (
         <EmptySearch content={"employees"} />
       ) : (
         <>
-          {data?.results?.length === 0 && query.search_query === "" ? (
+          {data?.results?.length === 0 && query.search === "" ? (
             <EmptyFetch content={"No Employees added yet"} />
           ) : (
             data?.results.map((employee, index) => (

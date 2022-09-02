@@ -19,7 +19,7 @@ import { EmployeeSchema, initialEmployeeValues } from "../schemas/employee";
 export const initialEmployeeQuery = {
   page: 1,
   department: "",
-  search_query: "",
+  search: "",
 };
 const Employees = () => {
   const { employeesTab } = useSelector((state) => state.tabsReducer);
@@ -34,7 +34,7 @@ const Employees = () => {
     setQuery({ ...query, page: 1, department: tab.charAt(0).toUpperCase() + tab.slice(1) });
   };
   const handleChange = (e) => {
-    setQuery({ ...query, search_query: e.target.value, page: 1 });
+    setQuery({ ...query, search: e.target.value, page: 1 });
   };
 
   const handleOnSubmit = (values, close) => {

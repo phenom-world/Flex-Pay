@@ -5,7 +5,7 @@ import { useExchangeCurrencyMutation } from "../redux/services";
 
 export const currency = [
   { sign: "$", code: "USD" },
-  { sign: "GP₵", code: "GPC" },
+  { sign: "GP₵", code: "GHS" },
   { sign: "₦", code: "NGN" },
 ];
 
@@ -22,17 +22,22 @@ const DashBalance = () => {
     if (isError && error) {
       toast.error(error?.data?.message);
     }
-  }, [data, error, isError, isSuccess, balance, sign]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [data, error, isError, isSuccess]);
 
   const handleSubmit = (e) => {
-    exchangeCurrency({ amount: Number(balance.value), currency: e.target.value.split(",")[1] });
-    setSign(e.target.value.split(",")[0]);
+    if (e.target.value.split(",")[0] === "$") {
+      setBalance({ ...balance, sign: "$", value: user.balance });
+    } else {
+      exchangeCurrency({ amount: Number(user.balance), currency: e.target.value.split(",")[1] });
+      setSign(e.target.value.split(",")[0]);
+    }
   };
 
   return (
     <div className="bg-orange rounded-xl mb-10">
       <div className="flex justify-end pt-5 px-4 md:px-10 ">
-        <select className="bg-orange border py-2 px-2 border-white rounded-lg" onChange={handleSubmit}>
+        <select className="bg-orange border text-white py-2 px-2 border-white rounded-lg" onChange={handleSubmit}>
           {currency.map((item, index) => (
             <option key={index} value={[item.sign, item.code]}>
               {item.code}
