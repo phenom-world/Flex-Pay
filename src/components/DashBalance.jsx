@@ -5,7 +5,7 @@ import { useExchangeCurrencyMutation } from "../redux/services";
 
 export const currency = [
   { sign: "$", code: "USD" },
-  { sign: "GP₵", code: "GHS" },
+  { sign: "Gh₵", code: "GHS" },
   { sign: "₦", code: "NGN" },
 ];
 
@@ -22,14 +22,15 @@ const DashBalance = () => {
     if (isError && error) {
       toast.error(error?.data?.message);
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data, error, isError, isSuccess]);
 
   const handleSubmit = (e) => {
     if (e.target.value.split(",")[0] === "$") {
       setBalance({ ...balance, sign: "$", value: user.balance });
     } else {
-      exchangeCurrency({ amount: Number(user.balance), currency: e.target.value.split(",")[1] });
+      console.log(user.balance)
+      exchangeCurrency({ amount: Number(user.balance), currency_to: e.target.value.split(",")[1], currency_from: "USD" });
       setSign(e.target.value.split(",")[0]);
     }
   };
