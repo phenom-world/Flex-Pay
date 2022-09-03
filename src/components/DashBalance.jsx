@@ -29,7 +29,6 @@ const DashBalance = () => {
     if (e.target.value.split(",")[0] === "$") {
       setBalance({ ...balance, sign: "$", value: user.balance });
     } else {
-      console.log(user.balance)
       exchangeCurrency({ amount: Number(user.balance), currency_to: e.target.value.split(",")[1], currency_from: "USD" });
       setSign(e.target.value.split(",")[0]);
     }
