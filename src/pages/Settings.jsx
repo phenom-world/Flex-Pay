@@ -84,7 +84,7 @@ const Settings = () => {
         </div>
       </div>
       <div className="md:mt-36 w-full sm:w-[20%] mr-10">
-        <div className="shadow-3xl flex flex-col items-center pb-40 rounded-lg">
+        <div className="shadow-3xl flex flex-col items-center md:pb-40 rounded-lg">
           <img src={Profile} alt="" className="pt-5" />
           <p className="pt-5 text-lg font-extrabold text-[#383B43]">Ovalfi Admin</p>
           <p className="pt-3 text-sm font-semibold text-[#959BA7]">admin@ovalfi.com</p>
@@ -187,7 +187,7 @@ const Settings = () => {
 
                 <button
                   onClick={handleSubmit}
-                  className="w-[200px] md:w-[500px] min-h-[50px] bg-orange rounded-lg mt-7 text-white text-base font-semibold hover:text-orange hover:bg-white hover:border-2 hover:border-orange"
+                  className="w-[200px] md:w-[500px] mb-10 h-[50px] bg-orange rounded-lg mt-7 text-white text-base font-semibold hover:text-orange hover:bg-white hover:border-2 hover:border-orange"
                 >
                   Update Profile
                 </button>
