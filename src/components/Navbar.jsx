@@ -64,7 +64,7 @@ const Navbar = ({ navbar }) => {
     navigate("/");
   };
   return (
-    <div className=" flex justify-between items-center mb-5 mr-5">
+    <div className=" flex justify-between items-center mb-5 md:mr-5">
       <div className="flex relative lg:hidden">
         {toggleMenu === "open" ? (
           <AiOutlineClose fontSize={28} className="text-white md:hidden cursor-pointer" onClick={() => setToggleMenu("close")} />
