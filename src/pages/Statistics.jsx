@@ -40,7 +40,7 @@ const Statistics = () => {
             <p className="text-sm text-[#171717] font-semibold">June 2022</p>
           </div>
           <p className="text-sm font-semibold text-[ #171717] mb-2">Top Earning Employees</p>
-          <div className="flex items-center mb-5 ">
+          <div className="flex items-center mb-5 flex-wrap ">
             <img src={Image1} alt="" className="mr-2" />
             <img src={Image2} alt="" className="mr-2" />
             <img src={Image3} alt="" className="mr-2" />

@@ -10,7 +10,6 @@ import Image4 from "../assets/image4.png";
 import Wrapper from "../HOC/Wrapper";
 
 const Dashboard = () => {
-
   return (
     <Wrapper>
       <div className="w-full md:w-[60%] mt-5 p-3 md:p-0 md:mx-5">
@@ -25,12 +24,12 @@ const Dashboard = () => {
           <Transcation />
         </div>
       </div>
-      <div className="md:mt-5 mx-3 md:mx-0 md:mr-5">
+      <div className="md:mt-5 mx-3 md:mx-0 md:mr-5 ">
         <Overview />
-        <div className="border-4 border-[#EDEDFE] rounded-lg pt-5 px-5 pb-8">
+        <div className="border-4 border-[#EDEDFE] rounded-lg pt-5 px-5 pb-8 ">
           <p className="text-xl font-extrabold mb-12">Employee Overview</p>
           <p className="text-sm font-semibold text-[ #171717] mb-2">Top Earning Employees</p>
-          <div className="flex items-center mb-5">
+          <div className="flex flex-wrap items-center mb-5">
             <img src={Image1} alt="" className="mr-2" />
             <img src={Image2} alt="" className="mr-2" />
             <img src={Image3} alt="" className="mr-2" />
