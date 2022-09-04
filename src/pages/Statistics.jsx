@@ -13,9 +13,9 @@ const Statistics = () => {
       <div className="sm:w-[60%] mx-5 mt-5">
         <Navbar navbar="Statistics" />
         <p className="font-semibold sm:hidden text-xl mb-3">Statistics</p>
-        <div className="flex md:flex-row flex-col">
+        <div className="flex md:flex-row flex-col md:flex-wrap gap-10">
           <Overview trans />
-          <div className=" sm:ml-10 order-2">
+          <div className="order-2 sm:w-[350px]">
             <div className="mb-5">
               <p className="text-xl">Total</p>
               <p className="text-[30px] sm:text-[30px] sm:text-[40px]  font-extrabold">$5,000,000.00</p>
