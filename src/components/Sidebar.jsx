@@ -15,14 +15,14 @@ const Sidebar = () => {
     navigate("/");
   };
   return (
-    <div className="px-10  w-[20%] h-screen bg-[#030729] lg:flex flex-col justify-between pb-10 sticky top-0 hidden">
+    <div className="px-2 xl:px-10 w-[20%] h-screen bg-[#030729] md:flex flex-col justify-between pb-10 sticky top-0 hidden">
       <div>
-        <p className="py-7 text-xl text-white font-semibold">Flexpay</p>
+        <p className="px-2 py-7 text-xl text-white font-semibold">Flexpay</p>
         <div className="w-full">
           <Link to="/dashboard">
             <div
               className={`flex items-center text-white text-lg mb-7 font-semibold px-5 cursor-pointer py-3 ${
-                location.pathname === "/dashboard" && "text-center rounded-lg text-flex-purple bg-white w-[80%]"
+                location.pathname === "/dashboard" && "text-center rounded-lg text-flex-purple bg-white"
               }`}
             >
               <MdDashboard className="text-3xl mr-7" />
@@ -32,7 +32,7 @@ const Sidebar = () => {
           <Link to="/wallet">
             <div
               className={`flex items-center text-white text-lg mb-7 font-semibold px-5 cursor-pointer py-3  ${
-                location.pathname === "/wallet" && "text-center rounded-lg text-flex-purple bg-white w-[80%]"
+                location.pathname === "/wallet" && "text-center rounded-lg text-flex-purple bg-white"
               }`}
             >
               <FaWallet className="text-3xl mr-7" />
@@ -42,7 +42,7 @@ const Sidebar = () => {
           <Link to="/employees">
             <div
               className={`flex items-center text-white text-lg mb-7 font-semibold px-5 cursor-pointer py-3  ${
-                location.pathname === "/employees" && "text-center rounded-lg text-flex-purple bg-white w-[80%]"
+                location.pathname === "/employees" && "text-center rounded-lg text-flex-purple bg-white"
               }`}
             >
               <BsPeopleFill className="text-3xl mr-7" />
@@ -52,7 +52,7 @@ const Sidebar = () => {
           <Link to="/transactions">
             <div
               className={`flex items-center text-white text-lg mb-7 font-semibold px-5 cursor-pointer py-3  ${
-                location.pathname === "/transactions" && "text-center rounded-lg text-flex-purple bg-white w-[80%]"
+                location.pathname === "/transactions" && "text-center rounded-lg text-flex-purple bg-white"
               }`}
             >
               <BiTransfer className="text-3xl mr-7" />
@@ -62,7 +62,7 @@ const Sidebar = () => {
           <Link to="/statistics">
             <div
               className={`flex items-center text-white text-lg mb-7 font-semibold px-5 cursor-pointer py-3  ${
-                location.pathname === "/statistics" && "text-black text-center rounded-lg text-flex-purple bg-white w-[80%]"
+                location.pathname === "/statistics" && "text-black text-center rounded-lg text-flex-purple bg-white"
               }`}
             >
               <BsFillBarChartLineFill className="text-3xl mr-7" />
@@ -72,7 +72,7 @@ const Sidebar = () => {
           <Link to="/settings">
             <div
               className={`flex items-center text-white text-lg mb-7 font-semibold px-5 cursor-pointer py-3  ${
-                location.pathname === "/settings" && "text-center rounded-lg text-flex-purple bg-white w-[80%]"
+                location.pathname === "/settings" && "text-center rounded-lg text-flex-purple bg-white"
               }`}
             >
               <MdSettings className="text-3xl mr-7" />

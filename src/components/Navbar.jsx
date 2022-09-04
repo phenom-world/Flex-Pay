@@ -67,9 +67,9 @@ const Navbar = ({ navbar }) => {
     <div className=" flex justify-between items-center mb-5 mr-5">
       <div className="flex relative lg:hidden">
         {toggleMenu === "open" ? (
-          <AiOutlineClose fontSize={28} className="text-white lg:hidden cursor-pointer" onClick={() => setToggleMenu("close")} />
+          <AiOutlineClose fontSize={28} className="text-white md:hidden cursor-pointer" onClick={() => setToggleMenu("close")} />
         ) : (
-          <HiMenuAlt4 fontSize={28} className="text-black lg:hidden  cursor-pointer" onClick={() => setToggleMenu("open")} />
+          <HiMenuAlt4 fontSize={28} className="text-black md:hidden  cursor-pointer" onClick={() => setToggleMenu("open")} />
         )}
         <ul
           className={`z-10 fixed px-10 w-[100vw] md:w-[300px] bg-[#030729] top-0 lg:hidden  left-0 p-3 h-screen shadow-2xl list-none flex flex-col justify-start text-white ${

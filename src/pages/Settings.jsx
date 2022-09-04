@@ -83,8 +83,8 @@ const Settings = () => {
           </div>
         </div>
       </div>
-      <div className="md:mt-36 w-full sm:w-[20%] mr-10">
-        <div className="shadow-3xl flex flex-col items-center md:pb-40 rounded-lg">
+      <div className="md:mt-36 w-full md:w-[20%] mr-10">
+        <div className="shadow-3xl flex flex-col items-center sm:pb-40 rounded-lg">
           <img src={Profile} alt="" className="pt-5" />
           <p className="pt-5 text-lg font-extrabold text-[#383B43]">Ovalfi Admin</p>
           <p className="pt-3 text-sm font-semibold text-[#959BA7]">admin@ovalfi.com</p>
