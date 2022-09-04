@@ -116,12 +116,12 @@ const Navbar = ({ navbar }) => {
         </ul>
       </div>
       {navbar === "Dashboard" ? (
-        <div className="hidden lg:block">
+        <div className="hidden md:block">
           <p className="font-semibold text-sm">Hello,</p>
           <p className="font-extrabold text-sm">OvalFi HR Admin</p>{" "}
         </div>
       ) : (
-        <p className="text-2xl hidden lg:block font-extrabold">{navbar}</p>
+        <p className="text-2xl hidden md:block font-extrabold">{navbar}</p>
       )}
       <div className="flex items-center gap-4">
         <MdNotifications className="text-3xl mr-7 " />
