@@ -19,7 +19,7 @@ const Settings = () => {
   };
   return (
     <Wrapper>
-      <div className="sm:w-[60%] mx-5 mt-5 w-full">
+      <div className="w-full md:w-[60%] mt-5 p-3 md:p-0 md:mx-5">
         <Navbar navbar="Settings" />
         <p className="font-semibold sm:hidden text-xl mb-3">Settings</p>
         <div className="shadow-3xl px-10 rounded-lg mt-20 pb-10 hidden sm:block">
