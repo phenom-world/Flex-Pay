@@ -1,5 +1,5 @@
 import { ErrorMessage, Field, Formik } from "formik";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { toast } from "react-toastify";
 import Popup from "reactjs-popup";
@@ -15,27 +15,13 @@ export const currency = [
 ];
 
 const DashBalance = () => {
-  const [exchangeCurrency, { data, isSuccess, isError, error }] = useExchangeCurrencyMutation();
+  const [exchangeCurrency, { data, isLoading: loader, isSuccess, isError, error }] = useExchangeCurrencyMutation();
   const [fundWallet, { isLoading, isSuccess: success, isError: iserror, error: err }] = useFundWalletMutation();
   const { data: wallet, isFetching, isSuccess: issuccess, isError: iserr, error: errorr } = useGetWalletQuery();
   const [balance, setBalance] = useState({ sign: "$", value: wallet?.balance });
   const [sign, setSign] = useState();
-  const valuesRef = useRef(null);
   const dispatch = useDispatch();
-
-  useEffect(() => {
-    if (isFetching) {
-      dispatch(openModal());
-    }
-    if (issuccess) {
-      dispatch(closeModal());
-      setBalance({ ...balance, value: wallet?.balance });
-    }
-    if (iserr && errorr) {
-      dispatch(closeModal());
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [dispatch, isFetching, issuccess, iserr, errorr, wallet]);
+  let [value, setValue] = useState();
 
   useEffect(() => {
     if (isSuccess) {
@@ -45,14 +31,28 @@ const DashBalance = () => {
       toast.error(error?.data?.message);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [data, error, isError, isSuccess, isLoading]);
+  }, [data, error, isError, isSuccess, loader]);
+
+  useEffect(() => {
+    if (isFetching) {
+      dispatch(openModal());
+    }
+    if (issuccess) {
+      dispatch(closeModal());
+      setBalance({ ...balance, value: wallet?.balance, sign: "$" });
+    }
+    if (iserr && errorr) {
+      dispatch(closeModal());
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [dispatch, isFetching, issuccess, iserr, errorr, wallet]);
 
   useEffect(() => {
     if (isLoading) {
       dispatch(openModal());
     }
     if (success) {
-      toast.success(`${valuesRef.current.values.amount} Wallet deposited successfully`);
+      toast.success(`Funds deposited successfully`);
       dispatch(closeModal());
     }
     if (iserror && err) {
@@ -61,7 +61,8 @@ const DashBalance = () => {
     }
   }, [isLoading, err, iserror, success, dispatch]);
 
-  const handleSubmit = (e) => {
+  const handleExchangeFunds = (e) => {
+    setValue(e.target.value);
     if (e.target.value.split(",")[0] === "$") {
       setBalance({ ...balance, sign: "$", value: wallet?.balance });
     } else {
@@ -70,15 +71,16 @@ const DashBalance = () => {
     }
   };
 
-  const handleOnSubmit = (values, close) => {
+  const handleFundWallet = (values, close) => {
     fundWallet({ ...values, amount: Number(values.amount) });
+    setValue("$, USD");
     close();
   };
 
   return (
     <div className="bg-orange rounded-xl mb-10">
       <div className="flex justify-end pt-5 px-4 md:px-10 ">
-        <select className="bg-orange border text-white py-2 px-2 border-white rounded-lg" onChange={handleSubmit}>
+        <select className="bg-orange border text-white py-2 px-2 border-white rounded-lg" name="select1" onChange={handleExchangeFunds} value={value}>
           {currency.map((item, index) => (
             <option key={index} value={[item.sign, item.code]}>
               {item.code}
@@ -118,12 +120,7 @@ const DashBalance = () => {
                 <XCancel close={close} />
               </div>
               <div className="px-[24px] pb-[32px] w-[300px] md:w-[500px] h-[auto]">
-                <Formik
-                  onSubmit={(values) => handleOnSubmit(values, close)}
-                  validationSchema={FundWalletSchema}
-                  initialValues={fundWalletFields}
-                  innerRef={valuesRef}
-                >
+                <Formik onSubmit={(values) => handleFundWallet(values, close)} validationSchema={FundWalletSchema} initialValues={fundWalletFields}>
                   {({ handleSubmit }) => (
                     <>
                       <p className="text-[#131221] font-black text-[16px] md:text-[24px] grid justify-center">Fund Wallet</p>
