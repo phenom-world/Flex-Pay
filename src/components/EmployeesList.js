@@ -31,9 +31,9 @@ const EmployeesList = ({ query, setQuery, data }) => {
                     <img src={Image4} alt="" />
                     <p className="text-[16px] font-bold break-words w-full md:max-w-[250px] w-auto">{employee?.name}</p>
                   </div>
-                  <div className="flex gap-2 md:hidden items-start">
+                  <div className="flex gap-2 md:hidden items-start w-full">
                     <img src={Image4} alt="" />
-                    <div>
+                    <div className="w-full">
                       <p className="text-[16px] font-bold break-words w-full md:hidden md:max-w-[250px] w-auto">{employee?.name}</p>
                       <p className="text-sm font-thin break-words">{employee?.department}</p>
                       <div className="sm:hidden flex  items-end justify-between w-full">

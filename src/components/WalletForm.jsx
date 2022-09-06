@@ -57,7 +57,14 @@ const WalletForm = ({ handleFundWallet, close, isWithdraw }) => {
           {isWithdraw && (
             <Popup
               trigger={
-                <button className="text-white bg-orange mt-8 hover:text-orange hover:bg-white text-base font-bold border-2 border-orange rounded-full p-2 hover:bg-orange hover:text-white w-full">
+                <button
+                  disabled={valuesRef?.current?.values.message === "" || valuesRef?.current?.values.description === "" ? true : false}
+                  className={`text-white ${
+                    valuesRef?.current === null || valuesRef?.current?.values.message === "" || valuesRef?.current?.values.description === ""
+                      ? "bg-gray-500 cursor-not-allowed"
+                      : "hover:bg-orange hover:text-white bg-orange hover:text-orange hover:bg-white border-2 border-orange "
+                  }  mt-8 text-base font-bold rounded-full p-2 w-full`}
+                >
                   Proceed to Withdraw <i className="fa fa-solid fa-arrow-right ml-2"></i>
                 </button>
               }
