@@ -4,7 +4,7 @@ const WithdrawConfirm = ({ handleSubmit, amount }) => {
   return (
     <div className="px-[24px] pb-[32px] w-[300px] md:w-[480px] h-[auto]">
       <p className="text-[#131221] font-black text-[20px] md:text-[24px] grid justify-center"> Confirm Withdraw</p>
-      <h1 className="font-semibold text-[14px] md:text-[16px] md:mt-4 mb-5 text-center md:text-left text-gray-700">Review Withdraw Details</h1>
+      <h1 className="font-semibold text-[14px] md:text-[16px] md:mt-4 mb-5 text-center md:text-left text-gray-700">Review Withdrawal Details</h1>
       <div className="flex flex-col gap-8 text-[14px] uppercase">
         <div className="flex justify-between items-center uppercase">
           <p>Withdrawal Amount</p>
