@@ -25,7 +25,7 @@ const AccountView = ({ employee, handleTransferFunds, close, setEmployeeId }) =>
           </div>
         </div>
         <div
-          className={`w-full mx-auto ${!transfer ? "flex justify-center mt-8" : "px-8"}`}
+          className={`w-full mx-auto ${!transfer ? "flex justify-center mt-8" : "px-4 md:px-8"}`}
           onClick={() => {
             setTransfer(true);
             setEmployeeId(employee.id);
