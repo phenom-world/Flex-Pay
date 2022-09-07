@@ -1,9 +1,9 @@
 import { createApi } from "@reduxjs/toolkit/query/react";
-import { baseQuery, createRequest, createRequestWithParams } from "./shared";
+import { baseQueryWithReauth, createRequest, createRequestWithParams } from "./shared";
 
 export const walletApi = createApi({
   reducerPath: "walletApi",
-  baseQuery: baseQuery,
+  baseQuery: baseQueryWithReauth,
   tagTypes: ["wallet"],
   endpoints: (builder) => ({
     exchangeCurrency: builder.mutation({
