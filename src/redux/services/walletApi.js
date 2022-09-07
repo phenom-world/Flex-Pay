@@ -35,6 +35,16 @@ export const walletApi = createApi({
       },
       invalidatesTags: ["wallet"],
     }),
+    transferFunds: builder.mutation({
+      query: (data) => {
+        return {
+          url: `/wallet/employee/transfer`,
+          method: "post",
+          body: data,
+        };
+      },
+      invalidatesTags: ["wallet"],
+    }),
     getWallet: builder.query({
       query: () => createRequest(`wallet/details`),
       providesTags: (_result, _error, id) => [{ type: "wallet", id }],
@@ -46,4 +56,11 @@ export const walletApi = createApi({
   }),
 });
 
-export const { useExchangeCurrencyMutation, useFundWalletMutation, useGetWalletQuery, useWithdrawFundsMutation, useGetTransactionsQuery } = walletApi;
+export const {
+  useTransferFundsMutation,
+  useExchangeCurrencyMutation,
+  useFundWalletMutation,
+  useGetWalletQuery,
+  useWithdrawFundsMutation,
+  useGetTransactionsQuery,
+} = walletApi;

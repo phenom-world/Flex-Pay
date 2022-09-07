@@ -34,9 +34,6 @@ const WalletForm = ({ handleFundWallet, close, isWithdraw }) => {
               <Field
                 name={"description"}
                 placeholder={"Enter description"}
-                onKeyDown={(e) => {
-                  e.key === "Enter" && handleSubmit();
-                }}
                 className="border w-full md:w-[500px] h-[40px] border-[#030729] opacity-50 rounded px-2  focus:outline-none "
               />
             </div>
@@ -58,7 +55,11 @@ const WalletForm = ({ handleFundWallet, close, isWithdraw }) => {
             <Popup
               trigger={
                 <button
-                  disabled={valuesRef?.current?.values.message === "" || valuesRef?.current?.values.description === "" ? true : false}
+                  disabled={
+                    valuesRef?.current === null || valuesRef?.current?.values.message === "" || valuesRef?.current?.values.description === ""
+                      ? true
+                      : false
+                  }
                   className={`text-white ${
                     valuesRef?.current === null || valuesRef?.current?.values.message === "" || valuesRef?.current?.values.description === ""
                       ? "bg-gray-500 cursor-not-allowed"

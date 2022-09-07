@@ -1,13 +1,42 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Image4 from "../assets/image4.png";
-import { useGetEmployeesQuery } from "../redux/services";
+import { useGetEmployeesQuery, useTransferFundsMutation } from "../redux/services";
 import Loading from "./Loading";
 import EmptySearch from "./Empty/EmptySearch";
 import Pagination from "./Pagination";
 import EmptyFetch from "./Empty/EmptyFetch";
+import XCancel from "./XCancel";
+import { useDispatch } from "react-redux";
+import { closeModal, openModal } from "../redux/modal/modalRedux";
+import { toast } from "react-toastify";
+import Popup from "reactjs-popup";
+import AccountView from "./AccountView";
 
 const EmployeesList = ({ query, setQuery, data }) => {
+  const [transferFunds, { isLoading, isSuccess, isError, error }] = useTransferFundsMutation();
+  const [employeeId, setEmployeeId] = useState("");
+  const dispatch = useDispatch();
   const { isFetching } = useGetEmployeesQuery();
+
+  useEffect(() => {
+    if (isLoading) {
+      dispatch(openModal());
+    }
+    if (isSuccess) {
+      toast.success(`Transfer successful`);
+      dispatch(closeModal());
+    }
+    if (isError && error) {
+      toast.error(error?.data?.message);
+      dispatch(closeModal());
+    }
+  }, [isLoading, error, isError, isSuccess, dispatch]);
+
+  const handleTransferFunds = (values, close) => {
+    console.log(values.amount, employeeId);
+    transferFunds({ ...values, amount: Number(values.amount), employee_id: employeeId });
+    close();
+  };
 
   if (isFetching && query.search === "") {
     return <Loading />;
@@ -41,9 +70,41 @@ const EmployeesList = ({ query, setQuery, data }) => {
                           <p className="text-sm font-thin mt-3">Salary</p>
                           <p className="text-[16px] font-bold">${employee?.salary}</p>
                         </div>
-                        <button className="px-2 py-2 rounded-xl bg-orange text-white font-bold text-base  hover:border-2 hover:border-orange hover:bg-white hover:text-orange">
-                          view account
-                        </button>
+                        <Popup
+                          trigger={
+                            <button className="px-2 py-2 rounded-xl bg-orange text-white font-bold text-base  hover:border-2 hover:border-orange hover:bg-white hover:text-orange">
+                              View Account{" "}
+                            </button>
+                          }
+                          position="right center"
+                          modal
+                          closeOnDocumentClick
+                          nested
+                          contentStyle={{
+                            borderRadius: "12px",
+                            width: "fit-content",
+                            backgroundColor: "white",
+                            fontSize: "0.8rem",
+                            maxHeight: "73%",
+                            overflowY: "auto",
+                          }}
+                        >
+                          {(close) => (
+                            <>
+                              <div className="mt-4 mr-4">
+                                <XCancel close={close} />
+                              </div>
+                              <div className="px-[24px] pb-[32px] w-[300px] md:w-[500px] h-[auto]">
+                                <AccountView
+                                  employee={employee}
+                                  close={close}
+                                  handleTransferFunds={handleTransferFunds}
+                                  setEmployeeId={setEmployeeId}
+                                />
+                              </div>
+                            </>
+                          )}
+                        </Popup>
                       </div>
                     </div>
                   </div>
@@ -52,9 +113,37 @@ const EmployeesList = ({ query, setQuery, data }) => {
                   <p className="text-sm font-thin">Salary</p>
                   <p className="text-base font-bold">${employee?.salary}</p>
                 </div>
-                <button className=" hidden sm:block py-2 px-4 bg-orange text-white font-bold text-base rounded-lg hover:border-2 hover:border-orange hover:bg-white hover:text-orange">
-                  view account
-                </button>
+
+                <Popup
+                  trigger={
+                    <button className=" hidden sm:block py-2 px-4 bg-orange text-white font-bold text-base rounded-lg hover:border-2 hover:border-orange hover:bg-white hover:text-orange">
+                      View Account{" "}
+                    </button>
+                  }
+                  position="right center"
+                  modal
+                  closeOnDocumentClick
+                  nested
+                  contentStyle={{
+                    borderRadius: "12px",
+                    width: "fit-content",
+                    backgroundColor: "white",
+                    fontSize: "0.8rem",
+                    maxHeight: "73%",
+                    overflowY: "auto",
+                  }}
+                >
+                  {(close) => (
+                    <>
+                      <div className="mt-4 mr-4">
+                        <XCancel close={close} />
+                      </div>
+                      <div className="px-[24px] pb-[32px] w-[300px] md:w-[500px] h-[auto]">
+                        <AccountView employee={employee} close={close} handleTransferFunds={handleTransferFunds} setEmployeeId={setEmployeeId} />
+                      </div>
+                    </>
+                  )}
+                </Popup>
               </div>
             ))
           )}
