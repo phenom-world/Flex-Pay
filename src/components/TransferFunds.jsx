@@ -66,7 +66,7 @@ const TransFerFunds = ({ close, handleTransferFunds }) => {
               width: "fit-content",
               backgroundColor: "white",
               fontSize: "0.8rem",
-              height: "73%",
+              height: "75%",
             }}
           >
             {(close) => (

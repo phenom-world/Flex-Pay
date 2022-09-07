@@ -10,7 +10,7 @@ import { useDispatch } from "react-redux";
 import { closeModal, openModal } from "../redux/modal/modalRedux";
 import { toast } from "react-toastify";
 import Popup from "reactjs-popup";
-import AccountView from "./AccountView";
+import AccountView from "./ViewAccount";
 
 const EmployeesList = ({ query, setQuery, data }) => {
   const [transferFunds, { isLoading, isSuccess, isError, error }] = useTransferFundsMutation();
@@ -85,7 +85,7 @@ const EmployeesList = ({ query, setQuery, data }) => {
                             width: "fit-content",
                             backgroundColor: "white",
                             fontSize: "0.8rem",
-                            maxHeight: "73%",
+                            maxHeight: "75%",
                             overflowY: "auto",
                           }}
                         >
@@ -129,7 +129,7 @@ const EmployeesList = ({ query, setQuery, data }) => {
                     width: "fit-content",
                     backgroundColor: "white",
                     fontSize: "0.8rem",
-                    maxHeight: "73%",
+                    maxHeight: "75%",
                     overflowY: "auto",
                   }}
                 >

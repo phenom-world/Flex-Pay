@@ -13,8 +13,8 @@ const AccountView = ({ employee, handleTransferFunds, close, setEmployeeId }) =>
         <p className="pt-5 text-lg font-extrabold text-[#383B43]">{employee.name}</p>
         <p className="text-sm font-semibold text-[#959BA7]">{employee.role}</p>
         <p className="text-sm font-semibold text-[#959BA7]"></p>
-        <div className=" w-full px-8 py-2">
-          <p className="text-sm text-[#959BA7] font-semibold mb-5">Account</p>
+        <div className=" w-full px-4 md:px-8 py-8">
+          <p className="text-sm text-[#959BA7] font-semibold mb-2 md:mb-5">Account</p>
           <div className="flex justify-between w-full">
             <div className="bg-[#F8F8F9] p-3 rounded-lg w-full">
               <div className="w-full flex gap-2">
