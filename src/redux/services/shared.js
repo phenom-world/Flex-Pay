@@ -1,6 +1,6 @@
 import { fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { isEmpty } from "lodash";
-import { store } from "../../redux/store/index";
+// import store from "../../redux/store";
 
 const { REACT_APP_BACKEND_API } = process.env;
 
@@ -23,9 +23,7 @@ export const baseQuery = fetchBaseQuery({
 
 export const baseQueryWithReauth = async (args, api, extraOptions) => {
   let result = await baseQuery(args, api, extraOptions);
-  const {
-    authStore: { authorization },
-  } = store.getState();
+  const authorization = api.getState()?.authStore.authorization;
   if (result.error && result.error.status === 401 && !isEmpty(authorization?.access)) {
     localStorage.clear();
     sessionStorage.clear();
