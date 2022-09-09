@@ -30,7 +30,7 @@ const Hero = () => {
               damping: 30,
               opacity: { duration: 0.2 },
             }}
-            className={`text-[35px] text-center w-full lg:text-left lg:text-[64px] lg:h-[300px] font-bold leading-[42px] lg:leading-[77px] pt-[70px] lg:pt-[100px] ${
+            className={`text-[35px] text-center w-full lg:text-left lg:text-[64px] h-[200px] lg:h-[300px] font-bold leading-[42px] lg:leading-[77px] pt-[70px] lg:pt-[100px] ${
               index === 1 && "lg:w-[80%]"
             }`}
           >

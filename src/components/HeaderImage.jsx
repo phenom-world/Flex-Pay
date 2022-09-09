@@ -44,7 +44,7 @@ const HeaderImage = () => {
   return (
     <div className="relative h-[300px] lg:h-[912px] mx-auto lg:mx-0 w-[80%] lg:w-[60%] bg-[#ECFAFF] justify-self-end mt-[55px] lg:mt-0">
       <div className={`absolute -left-6 lg:-left-36 top-4 lg:top-16 h-[80%] sm:h-[100%]`}>
-        <div className={`relative h-[125%] lg:h-[70%] w-[90%] sm:w-auto`}>
+        <div className={`relative h-[100%] lg:h-[70%] w-[90%] sm:w-auto`}>
           <AnimatePresence initial={false} custom={direction}>
             <motion.img
               className="w-auto h-[100%]"
