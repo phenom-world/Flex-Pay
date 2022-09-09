@@ -38,6 +38,7 @@ module.exports = {
       animation: {
         "slide-in": "slide-in 0.5s forwards",
         "slide-out": "slide-out 0.5s forwards",
+        fade: "slide-in 0.5s ease-in-out",
       },
     },
   },

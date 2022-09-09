@@ -16,11 +16,13 @@ import Statistics from "./pages/Statistics";
 import Transactions from "./pages/Transactions";
 import Wallet from "./pages/Wallet";
 import { persistor } from "./redux/store";
+import Homepage from "./pages/Homepage";
 
 function App() {
   return (
     <PersistGate loading={null} persistor={persistor}>
       <Routes>
+        <Route element={<Homepage />} path="/" />
         <Route element={<Login />} path="/" />
         <Route element={<SignUp />} path="/register" />
         <Route element={<Dashboard />} path={"/dashboard"} />
