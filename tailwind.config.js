@@ -38,11 +38,16 @@ module.exports = {
             transform: "translateX(-120%)",
           },
         },
+        "fade-out": {
+          "0%": { opacity: 1 },
+          "99%": { opacity: 0.01 },
+          "100% ": { opacity: 0 },
+        },
       },
       animation: {
         "slide-in": "slide-in 0.5s forwards",
         "slide-out": "slide-out 0.5s forwards",
-        fade: "slide-in 0.5s ease-in-out",
+        "fade-out": "fade-out 2s forwards ",
       },
     },
   },

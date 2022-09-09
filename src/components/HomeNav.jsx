@@ -5,7 +5,7 @@ import NavMobile from "./HomeNavMobile";
 
 export const navItem = ["Home", "Contact Us", "Download App"];
 const Navbar = () => {
-  const [toggleMenu, setToggleMenu] = useState("close");
+  const [toggleMenu, setToggleMenu] = useState("");
 
   const toggleNav = () => {
     toggleMenu === "open" ? setToggleMenu("close") : setToggleMenu("open");
@@ -60,7 +60,7 @@ const Navbar = () => {
             ></div>
             <div
               className={`duration-200 rounded-full  ${toggleMenu === "open" ? "w-[70%]" : "w-[40%]"} bg-gray-900 h-[2.5px] ${
-                toggleMenu === "open" && "-rotate-45 translate-x-[3px] -translate-y-[14px] tr  transition ease-in-out"
+                toggleMenu === "open" && "-rotate-45 translate-x-[4px] -translate-y-[16px]  transition ease-in-out"
               }`}
             ></div>
           </div>

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Man from "../assets/Man.png";
 import Woman from "../assets/woman.png";
 import Coin from "../assets/money1.svg";
@@ -40,10 +40,6 @@ const HeaderImage = () => {
   useInterval(() => {
     paginate(1);
   }, 5000);
-
-  useEffect(() => {
-    window.scrollTo(0, parseInt(150, 10));
-  });
 
   return (
     <div className="relative h-[300px] lg:h-[912px] mx-auto lg:mx-0 w-[80%] sm:w-[40%] lg:w-[60%] bg-[#ECFAFF] justify-self-end mt-[55px] lg:mt-0">
