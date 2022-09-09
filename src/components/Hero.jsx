@@ -49,7 +49,7 @@ const Hero = () => {
           </button>
         </div>
       </div>
-      <HeaderImage index={index} />
+      <HeaderImage />
     </div>
   );
 };

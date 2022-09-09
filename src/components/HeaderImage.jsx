@@ -7,7 +7,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { wrap } from "popmotion";
 import { useInterval } from "usehooks-ts";
 
-const images = [Man, Woman];
+const images = [Woman, Man];
 
 const variants = {
   enter: (direction) => {
@@ -23,7 +23,7 @@ const variants = {
   },
 };
 
-const HeaderImage = ({ index }) => {
+const HeaderImage = () => {
   const swipeConfidenceThreshold = 10000;
   const swipePower = (offset, velocity) => {
     return Math.abs(offset) * velocity;
@@ -40,10 +40,11 @@ const HeaderImage = ({ index }) => {
   useInterval(() => {
     paginate(1);
   }, 5000);
+
   return (
-    <div className="relative h-[380px] lg:h-[912px] mx-auto lg:mx-0 w-[80%] lg:w-[60%] bg-[#ECFAFF] justify-self-end mt-[55px] lg:mt-0">
-      <div className={`absolute ${index === 1 ? "-left-8" : "-left-4"} lg:-left-36 top-4 lg:top-16 h-[100%]`}>
-        <div className={`relative  ${index === 1 ? "h-[80%] sm:h-[70%]" : "h-[70%]"}`}>
+    <div className="relative h-[300px] lg:h-[912px] mx-auto lg:mx-0 w-[80%] lg:w-[60%] bg-[#ECFAFF] justify-self-end mt-[55px] lg:mt-0">
+      <div className={`absolute -left-6 lg:-left-36 top-4 lg:top-16 h-[80%] sm:h-[100%]`}>
+        <div className={`relative h-[125%] lg:h-[70%] w-[90%] sm:w-auto`}>
           <AnimatePresence initial={false} custom={direction}>
             <motion.img
               className="w-auto h-[100%]"
@@ -76,7 +77,7 @@ const HeaderImage = ({ index }) => {
           <div className="absolute -left-8 sm:-left-44 bottom-10 sm:bottom-20">
             <div className="z-10 flex gap-2 sm:gap-6 shadow-md w-[178px] sm:w-[260px] bg-white p-3 px-4 sm:px-8 rounded-xl items-center">
               <img src={Money} alt="money" className="h-[35px] sm:h-auto sm:w-[50px] animate-pulse" />
-              <p className="text-[11px] sm:text-[18px]">Your salary earned 9% APY interest</p>
+              <p className="text-[11px] sm:text-[18px] text-orange">Your salary earned 9% APY interest</p>
             </div>
           </div>
           <div className="absolute -right-12 sm:-right-36 top-1/2 -translate-y-[50%]">
