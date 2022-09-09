@@ -5,7 +5,7 @@ import Coin from "../assets/money1.svg";
 import Money from "../assets/money.svg";
 import { motion, AnimatePresence } from "framer-motion";
 import { wrap } from "popmotion";
-import { useInterval } from "usehooks-ts";
+import { useInterval, useMediaQuery } from "usehooks-ts";
 
 const images = [Woman, Man];
 
@@ -25,11 +25,14 @@ const variants = {
 
 const HeaderImage = () => {
   const swipeConfidenceThreshold = 10000;
+  const matches = useMediaQuery("(max-width: 768px)");
   const swipePower = (offset, velocity) => {
     return Math.abs(offset) * velocity;
   };
 
-  const [[page, direction], setPage] = useState([0, 0]);
+  console.log(matches);
+
+  const [[page], setPage] = useState([0, 0]);
 
   const imageIndex = wrap(0, images.length, page);
 
@@ -44,13 +47,13 @@ const HeaderImage = () => {
   return (
     <div className="relative h-[300px] lg:h-[912px] mx-auto lg:mx-0 w-[80%] sm:w-[40%] lg:w-[60%] bg-[#ECFAFF] justify-self-end mt-[55px] lg:mt-0">
       <div className={`absolute -left-6 lg:-left-36 top-4 lg:top-16 h-[80%] sm:h-[100%] `}>
-        <div className={`relative h-[120%] lg:h-[70%] w-[90%] sm:w-auto`}>
-          <AnimatePresence initial={false} custom={direction}>
+        <div className={`relative h-[120%] lg:h-[70%] w-[100%] sm:w-auto`}>
+          <AnimatePresence initial={false}>
             <motion.img
               className="w-auto h-[100%]"
               key={page}
               src={images[imageIndex]}
-              custom={direction}
+              custom={matches ? "0" : 1000}
               variants={variants}
               initial="enter"
               animate="center"
