@@ -35,7 +35,7 @@ const Hero = () => {
               damping: 30,
               opacity: { duration: 0.2 },
             }}
-            className={`text-[32px] text-center w-full min-h-[250px] lg:h-[300px] lg:text-left lg:text-[64px]  font-bold leading-[42px] lg:leading-[77px] pt-[70px] lg:pt-[80px]`}
+            className={`text-[32px] text-center w-full min-h-[200px] lg:h-[300px] lg:text-left lg:text-[64px]  font-bold leading-[42px] lg:leading-[77px] pt-[70px] lg:pt-[80px]`}
           >
             {content[index].content} <span className="text-orange">{content[index].span}</span>
           </motion.h1>
