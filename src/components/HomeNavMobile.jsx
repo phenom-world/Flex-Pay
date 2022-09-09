@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import { Link } from "react-router-dom";
 import { useMediaQuery } from "usehooks-ts";
 import { motion, useAnimation } from "framer-motion";
 import { navItem } from "./HomeNav";
@@ -67,22 +66,22 @@ const NavMobile = ({ toggleMenu, setToggleMenu }) => {
       <motion.div initial="hidden" animate={animation} variants={variants}>
         {navItem.map((item, index) => (
           <div key={item + index}>
-            <Link to={"/" + item}>
-              <motion.div
-                variants={v}
-                className={`flex items-center mx-auto text-white text-lg mb-3 font-semibold px-5 cursor-pointer py-3 ${
-                  item && "text-center rounded-lg text-flex-purple bg-white w-[80%]"
-                }`}
-                onClick={() => {
-                  onClick(item);
-                  setToggleMenu("close");
-                }}
-              >
-                <button className="w-[300px]  mx-auto min-h-[50px] bg-orange trans rounded-full text-white text-base font-semibold hover:text-orange hover:bg-white hover:border-2 hover:border-orange">
-                  {item}
-                </button>{" "}
-              </motion.div>
-            </Link>
+            {/* <Link to={"/" + item}> */}
+            <motion.div
+              variants={v}
+              className={`flex items-center mx-auto text-white text-lg mb-3 font-semibold px-5 cursor-pointer py-3 ${
+                item && "text-center rounded-lg text-flex-purple bg-white w-[80%]"
+              }`}
+              onClick={() => {
+                onClick(item);
+                setToggleMenu("close");
+              }}
+            >
+              <button className="w-[300px]  mx-auto min-h-[50px] bg-orange trans rounded-full text-white text-base font-semibold hover:text-orange hover:bg-white hover:border-2 hover:border-orange">
+                {item}
+              </button>{" "}
+            </motion.div>
+            {/* </Link> */}
           </div>
         ))}
       </motion.div>

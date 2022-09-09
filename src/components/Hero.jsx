@@ -1,5 +1,6 @@
 import { motion, AnimatePresence } from "framer-motion";
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { useInterval } from "usehooks-ts";
 import HeaderImage from "./HeaderImage";
 
@@ -44,7 +45,7 @@ const Hero = () => {
         </p>
         <div className="flex gap-[30px] flex-col md:flex-row  justify-center items-center">
           <button className="w-[222px] lg:w-[312px] min-h-[60px] lg:min-h-[84px] bg-orange trans rounded-[15px] text-white text-[17px] lg:text-[24px] font-semibold hover:text-orange hover:bg-white hover:border-2 hover:border-orange">
-            Create account
+            <Link to="/register"> Create account</Link>
           </button>
           <button className="w-[222px] lg:w-[312px] min-h-[60px] lg:min-h-[84px] trans rounded-[15px] border border-[#000]  text-[17px] lg:text-[24px] font-semibold hover:text-orange hover:bg-white hover:border-2 hover:border-orange">
             Download App{" "}
