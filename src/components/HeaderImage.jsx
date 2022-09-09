@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Man from "../assets/Man.png";
 import Woman from "../assets/woman.png";
 import Coin from "../assets/money1.svg";
@@ -41,10 +41,14 @@ const HeaderImage = () => {
     paginate(1);
   }, 5000);
 
+  useEffect(() => {
+    window.scrollTo(0, parseInt(150, 10));
+  });
+
   return (
-    <div className="relative h-[300px] lg:h-[912px] mx-auto lg:mx-0 w-[80%] lg:w-[60%] bg-[#ECFAFF] justify-self-end mt-[55px] lg:mt-0">
-      <div className={`absolute -left-6 lg:-left-36 top-4 lg:top-16 h-[80%] sm:h-[100%]`}>
-        <div className={`relative h-[100%] lg:h-[70%] w-[90%] sm:w-auto`}>
+    <div className="relative h-[300px] lg:h-[912px] mx-auto lg:mx-0 w-[80%] sm:w-[40%] lg:w-[60%] bg-[#ECFAFF] justify-self-end mt-[55px] lg:mt-0">
+      <div className={`absolute -left-6 lg:-left-36 top-4 lg:top-16 h-[80%] sm:h-[100%] `}>
+        <div className={`relative h-[120%] lg:h-[70%] w-[90%] sm:w-auto`}>
           <AnimatePresence initial={false} custom={direction}>
             <motion.img
               className="w-auto h-[100%]"
@@ -74,16 +78,16 @@ const HeaderImage = () => {
             />
           </AnimatePresence>
 
-          <div className="absolute -left-8 sm:-left-44 bottom-10 sm:bottom-20">
-            <div className="z-10 flex gap-2 sm:gap-6 shadow-md w-[178px] sm:w-[260px] bg-white p-3 px-4 sm:px-8 rounded-xl items-center">
+          <div className="absolute -left-4 sm:-left-44 bottom-10">
+            <div className="z-10 flex gap-2 sm:gap-6 shadow-md w-[178px] sm:w-[292px] bg-white p-3 px-4 sm:px-8 rounded-xl items-center">
               <img src={Money} alt="money" className="h-[35px] sm:h-auto sm:w-[50px] animate-pulse" />
-              <p className="text-[11px] sm:text-[18px] text-orange">Your salary earned 9% APY interest</p>
+              <p className="text-[11px] sm:text-[17px] text-orange">Your salary earned 9% APY interest</p>
             </div>
           </div>
-          <div className="absolute -right-12 sm:-right-36 top-1/2 -translate-y-[50%]">
-            <div className="z-10 flex gap-2 sm:gap-6 shadow-md w-[166px] sm:w-[260px] bg-white p-3 px-4 rounded-xl items-center">
+          <div className="absolute -right-16 sm:-right-36 top-1/2 -translate-y-[50%]">
+            <div className="z-10 flex gap-2 sm:gap-6 shadow-md w-[176px] sm:w-[292px] bg-white p-3 px-4 rounded-xl items-center">
               <img src={Coin} alt="money" className="h-[35px] sm:h-auto sm:w-[50px] animate-bounce motion-safe:animate-spin" />
-              <p className="text-[11px] sm:text-[18px]">Your savings goal has been reached</p>
+              <p className="text-[11px] sm:text-[17px]">Your savings goal has been reached</p>
             </div>
           </div>
         </div>

@@ -19,7 +19,7 @@ const Navbar = () => {
 
   return (
     <>
-      <div className="flex items-center md:pl-14 pr-24 pt-8 md:pt-14 z-50 text-[20px]">
+      <div className="flex items-center md:pl-14 pr-24 pt-8 md:pt-14 z-50 text-[20px] font-Inter">
         <div className="flex items-center w-full gap-6 lg:gap-12">
           <div className="z-50">
             <img src={Logo} alt="Kehinde" />
@@ -28,7 +28,7 @@ const Navbar = () => {
             <div className="flex items-center gap-6 lg:gap-12">
               {navItem.map((title, index) => (
                 <div key={index} onClick={() => onClick(title)}>
-                  <div key={title + index} className="hover:text-orange hover:scale-105 transition-all">
+                  <div key={title + index} className="hover:text-orange hover:scale-105 transition-all text-[20px]">
                     <Link to={`#${title}`}>{title}</Link>
                   </div>
                 </div>

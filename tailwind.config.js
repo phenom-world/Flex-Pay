@@ -1,6 +1,10 @@
 module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
+    fontFamily: {
+      Inter: ["Inter"],
+      DM_sans: ["DM Sans"],
+    },
     extend: {
       colors: {
         orange: "#F26722",

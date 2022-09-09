@@ -8,17 +8,21 @@ const Hero = () => {
 
   const content = [
     { content: "Employee payroll management,", span: "with APY Interest" },
-    { content: " Build wealth with your,", span: "employees" },
+    { content: " Build wealth with your", span: "employees" },
   ];
 
   useInterval(() => {
-    index === 0 ? setIndex(1) : setIndex(0);
+    if (index === 0) {
+      setIndex(1);
+    } else {
+      setIndex(0);
+    }
   }, 5000);
 
   return (
-    <div className="grid lg:grid-cols-2 lg:justify-end justify-center px-8 lg:px-0">
-      <div className="lg:w-[650px] flex flex-col gap-[32px] lg:pl-[70px]">
-        <AnimatePresence mode={"wait"}>
+    <div className="grid lg:grid-cols-2 lg:justify-end justify-center px-6 lg:px-0 font-Inter">
+      <div className="lg:w-[670px] flex flex-col gap-[32px]  lg:pl-[70px]">
+        <AnimatePresence mode={"wait"} initial={false}>
           <motion.h1
             key={index}
             initial={{ scale: 0.8, opacity: 0 }}
@@ -30,14 +34,12 @@ const Hero = () => {
               damping: 30,
               opacity: { duration: 0.2 },
             }}
-            className={`text-[35px] text-center w-full lg:text-left lg:text-[64px] h-[200px] lg:h-[300px] font-bold leading-[42px] lg:leading-[77px] pt-[70px] lg:pt-[100px] ${
-              index === 1 && "lg:w-[80%]"
-            }`}
+            className={`text-[35px] text-center w-full lg:h-[300px] lg:text-left lg:text-[64px]  font-bold leading-[42px] lg:leading-[77px] pt-[70px] lg:pt-[80px]`}
           >
             {content[index].content} <span className="text-orange">{content[index].span}</span>
           </motion.h1>
         </AnimatePresence>
-        <p className="text-[20px] lg:text-[32px] leading-[26px] lg:leading-[42px] font-[400px] text-center lg:text-left">
+        <p className="text-[20px] lg:text-[32px] leading-[26px] lg:leading-[42px] font-[400px] text-center lg:text-left font-DM_sans">
           Give your employees more reason to stay by making their money work for them
         </p>
         <div className="flex gap-[30px] flex-col md:flex-row  justify-center items-center">
