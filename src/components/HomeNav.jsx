@@ -38,12 +38,12 @@ const Navbar = () => {
         </div>
         <div className="hidden md:flex items-center w-full gap-6 lg:gap-12 justify-end ">
           <div className="hover:text-orange hover:scale-105 transition-all">
-            <Link to="/" className="cursor-pointer color-[#64ffda]">
+            <Link to="/login" className="cursor-pointer color-[#64ffda]">
               Sign in
             </Link>
           </div>
           <button className="w-[200px] min-h-[50px] bg-orange trans rounded-full text-white font-semibold hover:text-orange hover:bg-white hover:border-2 hover:border-orange">
-            Create account
+            <Link to="/register"> Create account</Link>
           </button>
         </div>
         <div cursor={"pointer"} className="cursor-pointer z-50 right-6 absolute block md:hidden">
