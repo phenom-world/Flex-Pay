@@ -30,8 +30,6 @@ const HeaderImage = () => {
     return Math.abs(offset) * velocity;
   };
 
-  console.log(matches);
-
   const [[page], setPage] = useState([0, 0]);
 
   const imageIndex = wrap(0, images.length, page);

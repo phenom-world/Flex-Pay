@@ -33,7 +33,6 @@ const EmployeesList = ({ query, setQuery, data }) => {
   }, [isLoading, error, isError, isSuccess, dispatch]);
 
   const handleTransferFunds = (values, close) => {
-    console.log(values.amount, employeeId);
     transferFunds({ ...values, amount: Number(values.amount), employee_id: employeeId });
     close();
   };
