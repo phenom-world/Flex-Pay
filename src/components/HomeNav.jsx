@@ -22,7 +22,7 @@ const Navbar = () => {
       <div className="flex items-center md:pl-14 pr-24 pt-8 md:pt-14 z-50 text-[20px] font-Inter">
         <div className="flex items-center w-full gap-6 lg:gap-12">
           <div className="z-50">
-            <img src={Logo} alt="Kehinde" />
+            <img src={Logo} alt="Logo" />
           </div>
           <div className="hidden md:block">
             <div className="flex items-center gap-6 lg:gap-12">
