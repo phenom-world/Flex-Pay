@@ -13,7 +13,7 @@ const Overview = ({ trans }) => {
     },
     {
       name: "Group B",
-      value: 0.01 * data?.balance,
+      value: 0.1 * data?.balance,
       fill: "#F26722",
     },
   ];
