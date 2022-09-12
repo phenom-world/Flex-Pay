@@ -7,12 +7,10 @@ const Overview = ({ trans }) => {
 
   const graphData = [
     {
-      name: "Group A",
       value: data?.balance,
       fill: "#D9D9D9",
     },
     {
-      name: "Group B",
       value: 0.1 * data?.balance,
       fill: "#F26722",
     },
